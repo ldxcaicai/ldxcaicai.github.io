@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>old driver tree | ldxcaicai</title>
+  <meta name="description" content="ODT简介 ODT(old driver tree 老驱动树)又名珂朵莉树 是由codeforcescodeforcescodeforces上一位叫做ODTODTODT的用户提出的一种基于平衡树的暴力数据结构。（实际上就是 lxllxllxl 这个数据结构的玄妙之处在于它并没有稳定的时间复杂度，因此只有在数据随机/水的情况下才会有较好的表现。  实现前提&amp;amp;&amp;amp;实现原理 前提是必须要">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="old driver tree">
+<meta property="og:url" content="http://yoursite.com/ODT/index.html">
+<meta property="og:site_name" content="自由を渇望する">
+<meta property="og:description" content="ODT简介 ODT(old driver tree 老驱动树)又名珂朵莉树 是由codeforcescodeforcescodeforces上一位叫做ODTODTODT的用户提出的一种基于平衡树的暴力数据结构。（实际上就是 lxllxllxl 这个数据结构的玄妙之处在于它并没有稳定的时间复杂度，因此只有在数据随机/水的情况下才会有较好的表现。  实现前提&amp;amp;&amp;amp;实现原理 前提是必须要">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-11T13:57:25.296Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="old driver tree">
+<meta name="twitter:description" content="ODT简介 ODT(old driver tree 老驱动树)又名珂朵莉树 是由codeforcescodeforcescodeforces上一位叫做ODTODTODT的用户提出的一种基于平衡树的暴力数据结构。（实际上就是 lxllxllxl 这个数据结构的玄妙之处在于它并没有稳定的时间复杂度，因此只有在数据随机/水的情况下才会有较好的表现。  实现前提&amp;amp;&amp;amp;实现原理 前提是必须要">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/ODT/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="自由を渇望する" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link href="//cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" rel="stylesheet">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/ldxcaicai" target="_blank">
+          <img class="img-circle img-rotate" src="/images/ss.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ldxcaicai</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">a loser</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chengdu, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://loj.ac" target="_blank" title="LOJ" data-toggle=tooltip data-placement=top><i class="icon icon-LOJ"></i></a></li>
+        
+        <li><a href="https://www.luogu.org" target="_blank" title="氵咕" data-toggle=tooltip data-placement=top><i class="icon icon-氵咕"></i></a></li>
+        
+        <li><a href="http://uoj.ac/" target="_blank" title="UOJ" data-toggle=tooltip data-placement=top><i class="icon icon-UOJ"></i></a></li>
+        
+        <li><a href="https://vjudge.net" target="_blank" title="Vjudge" data-toggle=tooltip data-placement=top><i class="icon icon-Vjudge"></i></a></li>
+        
+        <li><a href="http://darkbzoj.tk/" target="_blank" title="Darkbzoj" data-toggle=tooltip data-placement=top><i class="icon icon-darkbzoj"></i></a></li>
+        
+        <li><a href="https://codeforces.com" target="_blank" title="Codeforces" data-toggle=tooltip data-placement=top><i class="icon icon-Codeforces"></i></a></li>
+        
+        <li><a href="https://atcoder.jp" target="_blank" title="Atcoder" data-toggle=tooltip data-placement=top><i class="icon icon-Atcoder"></i></a></li>
+        
+        <li><a href="https://www.codechef.com" target="_blank" title="Codechef" data-toggle=tooltip data-placement=top><i class="icon icon-Codechef"></i></a></li>
+        
+        <li><a href="http://acm.hdu.edu.cn/" target="_blank" title="HDU" data-toggle=tooltip data-placement=top><i class="icon icon-HDU"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/zxyoi_dreamer" target="_blank" title="Zxyoi" data-toggle=tooltip data-placement=top><i class="icon icon-zxyoi"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_42555009" target="_blank" title="Backseat_Stargazer" data-toggle=tooltip data-placement=top><i class="icon icon-Backseat_Stargazer"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_43346903" target="_blank" title="Romiqi" data-toggle=tooltip data-placement=top><i class="icon icon-romiqi"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_43040655" target="_blank" title="Jun" data-toggle=tooltip data-placement=top><i class="icon icon-Jun"></i></a></li>
+        
+        <li><a href="http://blog.leanote.com/rockdu" target="_blank" title="Rockdu" data-toggle=tooltip data-placement=top><i class="icon icon-Rockdu"></i></a></li>
+        
+        <li><a href="https://dream-maker-yk.github.io" target="_blank" title="Dream_maker" data-toggle=tooltip data-placement=top><i class="icon icon-dream_maker"></i></a></li>
+        
+        <li><a href="https://www.cnblogs.com/weiyanpeng/" target="_blank" title="Jerome_wei" data-toggle=tooltip data-placement=top><i class="icon icon-jerome_wei"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/John_zyj" target="_blank" title="John_zyj" data-toggle=tooltip data-placement=top><i class="icon icon-John_zyj"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/sslz_fsy" target="_blank" title="FSYolanda" data-toggle=tooltip data-placement=top><i class="icon icon-FSYolanda"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_42835815" target="_blank" title="Gigo_64" data-toggle=tooltip data-placement=top><i class="icon icon-gigo_64"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与暴打ldxcaicai!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/private/">private</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/public/">public</a><span class="category-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杂/">杂</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/比赛题解/">比赛题解</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/考试题解/">考试题解</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/学习笔记/" style="font-size: 14px;">学习笔记</a> <a href="/tags/杂/" style="font-size: 13px;">杂</a> <a href="/tags/比赛题解/" style="font-size: 13.5px;">比赛题解</a> <a href="/tags/考试题解/" style="font-size: 13.5px;">考试题解</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/public/">public</a>
+              </p>
+              <p class="item-title">
+                <a href="/AGC039/" class="title">AtCoder Grand Contest 039 简要题解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:43:21.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/private/">private</a>
+              </p>
+              <p class="item-title">
+                <a href="/191009test/" class="title">2019.10.09 模拟测试题解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:27:23.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/private/">private</a>
+              </p>
+              <p class="item-title">
+                <a href="/191007test/" class="title">2019.10.07 模拟测试题解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-10T03:08:47.000Z" itemprop="datePublished">2019-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/public/">public</a>
+              </p>
+              <p class="item-title">
+                <a href="/CF1220/" class="title">Codeforces 1220 简要题解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-04T08:43:54.000Z" itemprop="datePublished">2019-10-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/private/">private</a>
+              </p>
+              <p class="item-title">
+                <a href="/191003test/" class="title">2019.10.03 模拟测试题解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-10-03T07:07:45.000Z" itemprop="datePublished">2019-10-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-ODT" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      old driver tree
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/ODT/" class="article-date">
+	  <time datetime="2019-09-25T14:25:20.000Z" itemprop="datePublished">2019-09-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/public/">public</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/学习笔记/">学习笔记</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/ODT/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="odt简介"><a class="markdownIt-Anchor" href="#odt简介"></a> ODT简介</h1>
+<p><strong>ODT(old driver tree 老驱动树)<s>又名珂朵莉树</s></strong></p>
+<p>是由<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">codeforces</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span></span></span></span>上一位叫做<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>的用户提出的一种基于平衡树的暴力数据结构。（实际上就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>x</mi><mi>l</mi></mrow><annotation encoding="application/x-tex">lxl</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span></p>
+<p>这个数据结构的玄妙之处在于它<strong>并没有稳定的时间复杂度</strong>，因此只有在数据随机/水的情况下才会有较好的表现。</p>
+<h1 id="实现前提实现原理"><a class="markdownIt-Anchor" href="#实现前提实现原理"></a> 实现前提&amp;&amp;实现原理</h1>
+<p>前提是必须要<strong>有区间覆盖操作</strong>且<strong>数据较随机/水</strong></p>
+<p>实现原理：将元素相同的区间推平一起处理，即如果区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>中的所有数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><msub><mi>a</mi><mi>l</mi></msub><mo separator="true">,</mo><msub><mi>a</mi><mrow><mi>l</mi><mo>+</mo><mn>1</mn></mrow></msub><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msub><mi>a</mi><mi>r</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[a_l,a_{l+1}...a_r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>全部相同的话就将这个区间的信息用一个节点表示。</p>
+<p><strong>从上述描述可以看出这个数据结构是非常暴力<s>玄学</s>的</strong></p>
+<h2 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h2>
+<p>然后对于每段区间我们可以用一个三元组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r,v]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span></span></span></span>来表示它的左/右端点和整个区间的值，然后对于这些区间的信息可以用一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>e</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">set</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span></span></span></span>来维护。</p>
+<p>下面谈谈<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>两个重要的操作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">split</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">assign</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span></p>
+<h2 id="split操作"><a class="markdownIt-Anchor" href="#split操作"></a> split操作</h2>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">split</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span></span></span></span>函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>t</mi><mo stretchy="false">(</mo><mi>p</mi><mi>o</mi><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">split(pos)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span>表示把<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pos</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span></span></span></span>所在的这个区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r,v]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span></span></span></span>分成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>p</mi><mi>o</mi><mi>s</mi><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,pos-1,v]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>p</mi><mi>o</mi><mi>s</mi><mo separator="true">,</mo><mi>r</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[pos,r,v]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">]</span></span></span></span>并且返回后者的迭代器。</p>
+<p>实现很简单直接二分找出<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pos</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span></span></span></span>所在的区间然后加几个小特判。</p>
+<hr>
+<h2 id="assign操作"><a class="markdownIt-Anchor" href="#assign操作"></a> assign操作</h2>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>最核心的操作<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">assign</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>g</mi><mi>n</mi><mo stretchy="false">(</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">assign(l,r,v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span>表示把区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>全部赋值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span>并且会将这<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>−</mo><mi>l</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r-l+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>个点合并成一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>节点插入到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>中，由于数据随机的时候<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>中节点会快速减少，因此<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>复杂度此时十分接近<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span><br>
+具体实现可以通过上面提到的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">split</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span></span></span></span>函数。</p>
+<hr>
+<h2 id="其它操作"><a class="markdownIt-Anchor" href="#其它操作"></a> 其它操作</h2>
+<p>至此，与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>相关的操作已经基本讲完了。</p>
+<p>剩下的操作与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>本身关系并不大，相当于就是遍历每一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mi>D</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">ODT</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span></span></span></span>节点暴力进行修改和查询。<br>
+它可以支持的操作（懒得放代码了）：</p>
+<h3 id="区间第k小"><a class="markdownIt-Anchor" href="#区间第k小"></a> 区间第k小</h3>
+<h3 id="区间加"><a class="markdownIt-Anchor" href="#区间加"></a> 区间加</h3>
+<h3 id="区间所有数的k次方和"><a class="markdownIt-Anchor" href="#区间所有数的k次方和"></a> 区间所有数的k次方和</h3>
+<h3 id="区间"><a class="markdownIt-Anchor" href="#区间"></a> 区间…</h3>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/ODT/" title="old driver tree" target="_blank" rel="external">http://yoursite.com/ODT/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ldxcaicai" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/ss.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ldxcaicai" target="_blank"><span class="text-dark">ldxcaicai</span><small class="ml-1x">a loser</small></a></h3>
+        <div>Glory is just in sight.</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/poly/" title="polynomial"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/AAA-tree/" title="AAA tree"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://loj.ac" target="_blank" title="LOJ" data-toggle=tooltip data-placement=top><i class="icon icon-LOJ"></i></a></li>
+        
+        <li><a href="https://www.luogu.org" target="_blank" title="氵咕" data-toggle=tooltip data-placement=top><i class="icon icon-氵咕"></i></a></li>
+        
+        <li><a href="http://uoj.ac/" target="_blank" title="UOJ" data-toggle=tooltip data-placement=top><i class="icon icon-UOJ"></i></a></li>
+        
+        <li><a href="https://vjudge.net" target="_blank" title="Vjudge" data-toggle=tooltip data-placement=top><i class="icon icon-Vjudge"></i></a></li>
+        
+        <li><a href="http://darkbzoj.tk/" target="_blank" title="Darkbzoj" data-toggle=tooltip data-placement=top><i class="icon icon-darkbzoj"></i></a></li>
+        
+        <li><a href="https://codeforces.com" target="_blank" title="Codeforces" data-toggle=tooltip data-placement=top><i class="icon icon-Codeforces"></i></a></li>
+        
+        <li><a href="https://atcoder.jp" target="_blank" title="Atcoder" data-toggle=tooltip data-placement=top><i class="icon icon-Atcoder"></i></a></li>
+        
+        <li><a href="https://www.codechef.com" target="_blank" title="Codechef" data-toggle=tooltip data-placement=top><i class="icon icon-Codechef"></i></a></li>
+        
+        <li><a href="http://acm.hdu.edu.cn/" target="_blank" title="HDU" data-toggle=tooltip data-placement=top><i class="icon icon-HDU"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/zxyoi_dreamer" target="_blank" title="Zxyoi" data-toggle=tooltip data-placement=top><i class="icon icon-zxyoi"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_42555009" target="_blank" title="Backseat_Stargazer" data-toggle=tooltip data-placement=top><i class="icon icon-Backseat_Stargazer"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_43346903" target="_blank" title="Romiqi" data-toggle=tooltip data-placement=top><i class="icon icon-romiqi"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_43040655" target="_blank" title="Jun" data-toggle=tooltip data-placement=top><i class="icon icon-Jun"></i></a></li>
+        
+        <li><a href="http://blog.leanote.com/rockdu" target="_blank" title="Rockdu" data-toggle=tooltip data-placement=top><i class="icon icon-Rockdu"></i></a></li>
+        
+        <li><a href="https://dream-maker-yk.github.io" target="_blank" title="Dream_maker" data-toggle=tooltip data-placement=top><i class="icon icon-dream_maker"></i></a></li>
+        
+        <li><a href="https://www.cnblogs.com/weiyanpeng/" target="_blank" title="Jerome_wei" data-toggle=tooltip data-placement=top><i class="icon icon-jerome_wei"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/John_zyj" target="_blank" title="John_zyj" data-toggle=tooltip data-placement=top><i class="icon icon-John_zyj"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/sslz_fsy" target="_blank" title="FSYolanda" data-toggle=tooltip data-placement=top><i class="icon icon-FSYolanda"></i></a></li>
+        
+        <li><a href="https://blog.csdn.net/qq_42835815" target="_blank" title="Gigo_64" data-toggle=tooltip data-placement=top><i class="icon icon-gigo_64"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
