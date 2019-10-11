@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="生成函数定义：  一般生成函数（OGF） 一般用于处理组合问题（无标号） F(x)=∑i=0∞fixiF(x)=\sum_{i=0}^{\infty}f_ix^iF(x)=∑i=0∞​fi​xi  OGF的运算 假设现在有两类组合对象A,BA,BA,B 首先考虑如何对它们取并 显然对于一个元素ttt，在AAA中出现了ata_tat​次，在BBB中出现了btb_tbt​次，一共会出现at+bta_t">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T13:57:13.975Z">
+<meta property="og:updated_time" content="2019-10-11T15:33:22.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Generating function">
 <meta name="twitter:description" content="生成函数定义：  一般生成函数（OGF） 一般用于处理组合问题（无标号） F(x)=∑i=0∞fixiF(x)=\sum_{i=0}^{\infty}f_ix^iF(x)=∑i=0∞​fi​xi  OGF的运算 假设现在有两类组合对象A,BA,BA,B 首先考虑如何对它们取并 显然对于一个元素ttt，在AAA中出现了ata_tat​次，在BBB中出现了btb_tbt​次，一共会出现at+bta_t">
@@ -344,6 +344,15 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一般生成函数ogf"><span class="toc-number">1.</span> <span class="toc-text"> 一般生成函数（OGF）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ogf的运算"><span class="toc-number">1.1.</span> <span class="toc-text"> OGF的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ogf生成序列"><span class="toc-number">1.2.</span> <span class="toc-text"> OGF生成序列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指数生成函数egf"><span class="toc-number">2.</span> <span class="toc-text"> 指数生成函数(EGF)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#egf的运算"><span class="toc-number">2.1.</span> <span class="toc-text"> EGF的运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#egf生成序列"><span class="toc-number">2.2.</span> <span class="toc-text"> EGF生成序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#egf生成集合"><span class="toc-number">2.3.</span> <span class="toc-text"> EGF生成集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成函数计数"><span class="toc-number">3.</span> <span class="toc-text"> 生成函数计数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#置换计数"><span class="toc-number">3.1.</span> <span class="toc-text"> 置换计数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背包计数"><span class="toc-number">3.2.</span> <span class="toc-text"> 背包计数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#q1"><span class="toc-number">3.2.1.</span> <span class="toc-text"> Q1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#q2"><span class="toc-number">3.2.2.</span> <span class="toc-text"> Q2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#q3"><span class="toc-number">3.2.3.</span> <span class="toc-text"> Q3</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树的计数"><span class="toc-number">3.3.</span> <span class="toc-text"> 树的计数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#有标号无根树计数"><span class="toc-number">3.3.1.</span> <span class="toc-text"> 有标号无根树计数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有标号有根树计数"><span class="toc-number">3.3.2.</span> <span class="toc-text"> 有标号有根树计数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无标号有根树计数"><span class="toc-number">3.3.3.</span> <span class="toc-text"> 无标号有根树计数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无标号无根树计数"><span class="toc-number">3.3.4.</span> <span class="toc-text"> 无标号无根树计数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概率生成函数"><span class="toc-number">4.</span> <span class="toc-text"> 概率生成函数</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
   <article id="post-gf" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -579,14 +588,23 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/SGTtrick/" title="segement tree trick"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/poly/" title="polynomial"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/poly/" title="polynomial"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/AAA-tree/" title="AAA tree"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
     
   </ul>
   
