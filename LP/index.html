@@ -388,6 +388,13 @@
 
 
         
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/LP/#comments" class="article-comment-link">评论</a></span>
         
@@ -611,7 +618,7 @@ limits:&\sum_{j=1}^ma_{j,i}y_j\le c_j\\
     
     
     <li class="next">
-      <a href="/bm-algorithm/" title="Berlekamp-Massey algorithm"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/SGTtrick/" title="segement tree trick"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -722,6 +729,8 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
    
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 
 
@@ -740,7 +749,7 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
     e.parentNode.insertBefore(j, e);
   })(document, 'script');
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -749,21 +758,5 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
