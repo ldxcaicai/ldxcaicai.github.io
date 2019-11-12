@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="染色解题思路：  对于 $k=2$ 的情况特判一下，然后剩下的点发现用状压 $dp$ 会 $TLE$ ，于是按格子转移，写个 $k$ 进制轮廓线即可  CODE  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-05T15:05:31.552Z">
+<meta property="og:updated_time" content="2019-11-12T15:49:49.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round5">
 <meta name="twitter:description" content="染色解题思路：  对于 $k=2$ 的情况特判一下，然后剩下的点发现用状压 $dp$ 会 $TLE$ ，于是按格子转移，写个 $k$ 进制轮廓线即可  CODE  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
@@ -348,7 +348,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#染色"><span class="toc-number">1.</span> <span class="toc-text">染色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外星人"><span class="toc-number">2.</span> <span class="toc-text">外星人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lesson-Timetable"><span class="toc-number">3.</span> <span class="toc-text">Lesson Timetable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#摘苹果"><span class="toc-number">5.</span> <span class="toc-text">摘苹果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#假面"><span class="toc-number">6.</span> <span class="toc-text">假面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#记忆的轮廓"><span class="toc-number">7.</span> <span class="toc-text">记忆的轮廓</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#染色"><span class="toc-number">1.</span> <span class="toc-text">染色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外星人"><span class="toc-number">2.</span> <span class="toc-text">外星人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lesson-Timetable"><span class="toc-number">3.</span> <span class="toc-text">Lesson Timetable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#On-the-Bench"><span class="toc-number">4.</span> <span class="toc-text">On the Bench</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#摘苹果"><span class="toc-number">5.</span> <span class="toc-text">摘苹果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#假面"><span class="toc-number">6.</span> <span class="toc-text">假面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#记忆的轮廓"><span class="toc-number">7.</span> <span class="toc-text">记忆的轮廓</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -436,7 +436,7 @@
 </details>
 
 <hr>
-<h2 id><a href="#" class="headerlink" title></a><a href="https://codeforces.com/contest/840/problem/C" target="_blank" rel="noopener"></a></h2><p>解题思路：</p>
+<h2 id="On-the-Bench"><a href="#On-the-Bench" class="headerlink" title="On the Bench"></a><a href="https://codeforces.com/contest/840/problem/C" target="_blank" rel="noopener">On the Bench</a></h2><p>解题思路：</p>
 <blockquote>
 <p>考虑到若有 $a\times b,a\times c$ 均为完全平方数的话，那么 $b\times c$ 也为完全平方数，于是可以把整个数列分成若干不相交组，组内元素相乘必定为完全平方数，不同组两个数相乘必定不为完全平方数</p>
 <p>那么现在问题转化成了给你 $m$ 个组，这 $m$ 个组一共有 $n$ 个数，让你将这 $n$ 个数进行排列，使得相邻两个数不属于同一个组，问方案数</p>
