@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>Berlekamp-Massey algorithm | 自由を渇望する</title>
-  <meta name="description" content="算法引入Berlekamp-Massey算法可以在$O(n^2)$的时间内求出长度为$n$的已知数列的最短递推式，再配合常系数齐次线性递推就可以快速求出数列的任意项。 现在给你一个数列，考虑如何构造出其最短递推式。 算法流程对于一个$n$项的数列 $A=\{a_1,a_2,…,a_n\}$ 和另一个$m$项的数列 $R=\{r_1,r_2,…,r_m\}(m\le n)$ ，当$\forall k">
-<meta name="keywords" content="学习笔记">
+  <title>CSP-S 2019 泪奔记 | 自由を渇望する</title>
+  <meta name="description" content="希望这不是博主发出来的最后一篇blog2333 Day 0上午写完了 $NOIP$ 的最后一部分真题，这里是以往的 $NOIP\ TG$ 的题解链接 然后中午写完题解和 $Dad$ 一起去了酒店，在滴滴上听歌听到一半播放器就没电了， $sad$ 在酒店颓废了一下午之后跟 $Dad$ 出门吃晚饭结果遇见了 $Jun$ ，发现住的是同一家酒店（惊了$\times 1$），吃了半碗米线，感觉没有食欲，然">
+<meta name="keywords" content="游记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Berlekamp-Massey algorithm">
-<meta property="og:url" content="http://ldxcaicai.github.io/bm-algorithm/index.html">
+<meta property="og:title" content="CSP-S 2019 泪奔记">
+<meta property="og:url" content="http://ldxcaicai.github.io/csp2019/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="算法引入Berlekamp-Massey算法可以在$O(n^2)$的时间内求出长度为$n$的已知数列的最短递推式，再配合常系数齐次线性递推就可以快速求出数列的任意项。 现在给你一个数列，考虑如何构造出其最短递推式。 算法流程对于一个$n$项的数列 $A=\{a_1,a_2,…,a_n\}$ 和另一个$m$项的数列 $R=\{r_1,r_2,…,r_m\}(m\le n)$ ，当$\forall k">
+<meta property="og:description" content="希望这不是博主发出来的最后一篇blog2333 Day 0上午写完了 $NOIP$ 的最后一部分真题，这里是以往的 $NOIP\ TG$ 的题解链接 然后中午写完题解和 $Dad$ 一起去了酒店，在滴滴上听歌听到一半播放器就没电了， $sad$ 在酒店颓废了一下午之后跟 $Dad$ 出门吃晚饭结果遇见了 $Jun$ ，发现住的是同一家酒店（惊了$\times 1$），吃了半碗米线，感觉没有食欲，然">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T15:33:28.411Z">
+<meta property="og:updated_time" content="2019-11-17T07:20:55.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Berlekamp-Massey algorithm">
-<meta name="twitter:description" content="算法引入Berlekamp-Massey算法可以在$O(n^2)$的时间内求出长度为$n$的已知数列的最短递推式，再配合常系数齐次线性递推就可以快速求出数列的任意项。 现在给你一个数列，考虑如何构造出其最短递推式。 算法流程对于一个$n$项的数列 $A=\{a_1,a_2,…,a_n\}$ 和另一个$m$项的数列 $R=\{r_1,r_2,…,r_m\}(m\le n)$ ，当$\forall k">
+<meta name="twitter:title" content="CSP-S 2019 泪奔记">
+<meta name="twitter:description" content="希望这不是博主发出来的最后一篇blog2333 Day 0上午写完了 $NOIP$ 的最后一部分真题，这里是以往的 $NOIP\ TG$ 的题解链接 然后中午写完题解和 $Dad$ 一起去了酒店，在滴滴上听歌听到一半播放器就没电了， $sad$ 在酒店颓废了一下午之后跟 $Dad$ 出门吃晚饭结果遇见了 $Jun$ ，发现住的是同一家酒店（惊了$\times 1$），吃了半碗米线，感觉没有食欲，然">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ldxcaicai.github.io/bm-algorithm/index.html">
+  <link rel="canonical" href="http://ldxcaicai.github.io/csp2019/index.html">
   
     <link rel="alternate" href="/atom.xml" title="自由を渇望する" type="application/atom+xml">
   
@@ -348,21 +348,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法引入"><span class="toc-number">1.</span> <span class="toc-text">算法引入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法流程"><span class="toc-number">1.1.</span> <span class="toc-text">算法流程</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-0"><span class="toc-number">1.</span> <span class="toc-text">Day 0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-1"><span class="toc-number">2.</span> <span class="toc-text">Day 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Day-2"><span class="toc-number">3.</span> <span class="toc-text">Day 2</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-bm-algorithm" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-csp2019" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Berlekamp-Massey algorithm
+      CSP-S 2019 泪奔记
     </h1>
   
 
@@ -370,8 +370,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/bm-algorithm/" class="article-date">
-	  <time datetime="2019-09-25T14:25:20.000Z" itemprop="datePublished">2019-09-25</time>
+	<a href="/csp2019/" class="article-date">
+	  <time datetime="2019-11-17T06:40:02.000Z" itemprop="datePublished">2019-11-17</time>
 	</a>
 </span>
         
@@ -383,7 +383,7 @@
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/学习笔记/">学习笔记</a>
+	<a class="article-tag-link" href="/tags/游记/">游记</a>
   </span>
 
 
@@ -396,47 +396,23 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/bm-algorithm/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/csp2019/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="算法引入"><a href="#算法引入" class="headerlink" title="算法引入"></a>算法引入</h2><p>Berlekamp-Massey算法可以在$O(n^2)$的时间内求出长度为$n$的已知数列的最短递推式，再配合常系数齐次线性递推就可以快速求出数列的任意项。</p>
-<p>现在给你一个数列，考虑如何构造出其最短递推式。</p>
-<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><p>对于一个$n$项的数列 $A=\{a_1,a_2,…,a_n\}$ 和另一个$m$项的数列 $R=\{r_1,r_2,…,r_m\}(m\le n)$ ，当$\forall k&gt;m$，都满足$a_k=\sum\limits_{i=1}^mr_ia_{k-i}$时，我们称$R是$A的一个递推式，对于所有满足条件的$R$，我们将$m$最小的$R$称为$A$的最短线性递推式。</p>
-<p>现在我们考虑用增量构造法构造一个$N$项的数列$A$的最短线性递推式$R$</p>
-<p>假设我们当前处理到位置$n$，$\{a_1,a_2,…,a_{n-1}\}$的最短线性递推式为$\{r_1,r_2,…,r_m\}$，记第$i$次更改最短线性递推式为$R_i$，特别的，$R_0=\{\emptyset\},R_{cur}=\{r_1,r_2,…,r_m\}$即为当前最短线性递推式。</p>
-<p>设$\Delta n=a_n-\sum\limits_{i=1}^mr_ia_{n-i}$，现在按$\Delta n$的取值分两种情况考虑</p>
-<ol>
-<li>$\Delta n=0$，则$R_{cur}$为$\{a_1,a_2,…,a_n\}$的最短线性递推式</li>
-<li>$\Delta n\not=0$，则$R_{cur}$在位置$n$出错，我们要构造出$R_{cur+1}$来修正这个递推式。</li>
-</ol>
-<p>修正递推式时又要分两种情况</p>
-<ol>
-<li>$cur=0$，我们直接构造一个递推式 $R_1=\{r_1,r_2,r_3,…,r_n\}$，其中 $r_1=r_2=\cdot\cdot\cdot=r_n=0$</li>
-<li>$cur\not=0$，考虑构造一个增量构造式$R_{\Delta}$满足$R_{cur+1}=R_{cur}+R_{\Delta}$，接下来我们将对如何构造$R_{\Delta}$展开讨论。</li>
-</ol>
-<p>定义$fail_{i}$表示递推式$R_{i}$出错的最早位置，那么此时按照定义$fail_{cur}=n$。</p>
-<p>假设$R_{\Delta}$一共有$m’$项，考虑$R_{\Delta}$要满足的条件：</p>
-<ol>
-<li>$\Delta n=\sum\limits_{i=1}^{m’}R_{\Delta,i}a_{n-i}$</li>
-<li>$\forall m’&lt;k&lt;n,0=\sum\limits_{i=1}^{m’}R_{\Delta,i}a_{k-i}$</li>
-</ol>
-<p>考虑到$R_{cur-1}$这个递推式满足类似的条件：</p>
-<ol>
-<li>$\Delta fail_{cur-1}=a_{fail_{cur-1}}-\sum\limits_{i=1}^{m_{cur-1}}R_{cur-1,i}a_{fail_{cur-1}-i}$</li>
-<li>$\forall m_{cur-1}&lt;k&lt;fail_{cur-1},0=a_k-\sum\limits_{i=1}^{m_{cur-1}}R_{cur-1,i}a_{k-i}$</li>
-</ol>
-<p>我们设$t=\frac{\Delta n}{\Delta fail_{cur-1}},b=\{t,-t\times r_{cur-1,1},-t\times r_{cur-1,2},…,-t\times r_{cur-1,m_{cur-1}}\}$</p>
-<p>这启示我们按照如下方式构造$R_{\Delta}$：</p>
-<ol>
-<li>$\forall fail_{cur-1}&lt;k&lt;n$，我们给$a_{n-k}$分配$0$作为系数</li>
-<li>$\forall fail_{cur-1}-m_{cur-1}\le k\le fail_{cur-1}$,我们给$a_{n-k}$分配$b_{fail_{cur-1}-k+1}$作为系数。</li>
-</ol>
-<p>这样构造出来的数列 <script type="math/tex">R_{\Delta}=\{0,0,...,0,t,-t\times r_{cur-1,1},-t\times r_{cur-1,2},...,-t\times r_{cur-1,m_{cur-1}}\}</script>满足条件</p>
-<p>再让$R_{cur+1}=R_{cur}+R_{\Delta}$即可。</p>
-<p>由于最坏情况下可能会修改$O(n)$次，所以复杂度$O(n^2)$</p>
+        <p>希望这不是博主发出来的最后一篇blog2333</p>
+<h2 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h2><p>上午写完了 $NOIP$ 的最后一部分真题，<a href="https://47765.blog.luogu.org/#type=NOIP%E7%9C%9F%E9%A2%98%E9%A2%98%E8%A7%A3" target="_blank" rel="noopener">这里是以往的 $NOIP\ TG$ 的题解链接</a></p>
+<p>然后中午写完题解和 $Dad$ 一起去了酒店，在滴滴上听歌听到一半播放器就没电了， $sad$</p>
+<p>在酒店颓废了一下午之后跟 $Dad$ 出门吃晚饭结果遇见了 $Jun$ ，发现住的是同一家酒店（惊了$\times 1$），吃了半碗米线，感觉没有食欲，然后去买面包发现 $jmr$ 也在和他爸买面包（惊了 $\times 2$），然后去买了碗泡面准备晚上吃，回去之后跟 $Jun$ 谈了一个多小时人生，然后又颓废了一会儿冲个澡就睡了</p>
+<h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>起床之后套了个耳机和 $Dad$ 一起去考场，然后发现其余选手貌似都已经进场了，赶快去拿了两瓶农夫山泉然后进了考场，<del>发现没人拦着我写板子于是把板子码完了</del>，然后开题，<del>发现前两道都比较菜感觉阿克稳了</del>，结果 $9:00$ 过了大样例之后发现完全不会 $T3$ ，感觉没救了，一直肝到 $11:00$ 都没有想清楚细节果断准备搞暴力，<del>然后发现暴力只会第一档，自闭了</del>，最后一分钟又加上了一个刚过编译的假贪心交了上去<del>说不定原本的暴力分都没了，想题期间把 $T3$ 题意看错两次</del></p>
+<p>出考场之后突然听说 $T1$ 要 $ULL$ ，自闭了，感觉退役稳了，算了一下 $day1$ 貌似最高才 $205$ 被其余人按在地上暴打</p>
+<p>然后下午听说 $romiqi$ 爆炸了感觉有点遗憾，简单聊了几句之后跑去睡觉，起来之后跟 $hjk1030$ 聊天结果得知 $zyj$ 也跟我住一个酒店？？？（惊了 $\times 3$），然后跑去串门聊了很久的天，之后跟 $Jun$ 两个人一起去电子科大打羽毛球，<del>结果两个铁憨憨不认路找了 $30min$ 才找到场子，打的时候旁边还有一对 $cp$ 在花式虐狗，更6p的是我俩在篮球场里看见一堆人在直播电竞比赛</del>，跟 $Jun$ 在电子科大里走路的时候又聊了好久人生</p>
+<p>晚上回酒店发现 $Mom$ 来了（惊了 $\times 4$ ），吃完晚饭之后听说 $CDQZ$ 在一个一个面谈于是下去面基，发现 $buzhibujue,sjkmost,jmr$ 在下面转圈，看起来都好稳的样子，大概聊了一下最后不知道怎么变成 $mod\ jerome$_ $wei$ 和 $mod\ zxyoi$ _$dreamer$ 大会了，然后找到 $yangkai$ 和 $hjk1030$ 聊了一小会儿又回房了，结果回去之后 $yangkai$ 突然问我他 $d1t2$ 的正确性，想了一下发现没啥锅跟他说了几句然后小颓一会儿又睡了</p>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><p>早上爬起来洗个澡，感觉美滋滋，然后去考场的时候遇到了 $yangkai$ ，然后听说司机差点没调出来 $d1t3$ 。进考场打完板子之后一开题就蒙蔽了，居然没送分题？？？不对 $T2$ 好像是送的，然后想了 $20min$ 无果发现看错题了，然后倒回去看 $T1$ ，想了一会儿发现是个补集转化入门题，过完样例就跑去想 $T2$ ，然后感觉越想越不行，准备先写 $T3$ 暴力然后把 $T2$ 鈤出来，但由于写 $T3$ 暴力的时候我 $dev$ 又死掉了于是心态小崩，（这么说来我目前参加过的大赛 $day2$ 都死机了）结果开 $T2$ 的时候已经 $11:00$ 了，想了 $30min$ 无果之后 $rush$ 了一个 $32pts$ 暴力，发现能优化到 $64pt$ 并且在结束前 $5min$ 的时候调出来了，然后考试结束了</p>
+<p>出来之后听说 $romiqi$ 翻车二连， $T2$ 切 $88pts$ 是真的强，没调出来就有点可惜，主要是因为今年两天都没有区分度，只要暴力打好即可。这样对我们这种准备很久的 $oier$ 完全没有优势，不过 $CCF$ <del>也让很多分数相近的选手看到希望从而赚更多钱</del>。</p>
+<p>现在博主慌得一批感觉会 $FST$ 一堆，希望运气好点吧，不过 $WC$ 和 $PKUWC$ 是百分百无望了，如果我去莽个 $d1t3$ 的暴力也就不至于成现在这鬼样子了，唉</p>
 
       
     </div>
@@ -446,7 +422,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ldxcaicai.github.io/bm-algorithm/" title="Berlekamp-Massey algorithm" target="_blank" rel="external">http://ldxcaicai.github.io/bm-algorithm/</a>
+      <a href="http://ldxcaicai.github.io/csp2019/" title="CSP-S 2019 泪奔记" target="_blank" rel="external">http://ldxcaicai.github.io/csp2019/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -494,13 +470,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/SGTtrick/" title="segement tree trick"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/ODT/" title="old driver tree"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/sol6/" title="杂题乱做 Round6"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
