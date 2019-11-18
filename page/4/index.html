@@ -17,11 +17,11 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>分类: public | 自由を渇望する</title>
+  <title>自由を渇望する</title>
   <meta name="description" content="Konjak_ldx&apos;s blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="自由を渇望する">
-<meta property="og:url" content="http://ldxcaicai.github.io/categories/public/index.html">
+<meta property="og:url" content="http://ldxcaicai.github.io/page/4/index.html">
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="Konjak_ldx&apos;s blog">
 <meta property="og:locale" content="zh-CN">
@@ -29,7 +29,7 @@
 <meta name="twitter:title" content="自由を渇望する">
 <meta name="twitter:description" content="Konjak_ldx&apos;s blog">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://ldxcaicai.github.io/categories/public/index.html">
+  <link rel="canonical" href="http://ldxcaicai.github.io/page/4/index.html">
   
     <link rel="alternate" href="/atom.xml" title="自由を渇望する" type="application/atom+xml">
   
@@ -340,135 +340,149 @@
 
   
   <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类: public</h1>
-      <p class="hidden-xs">共 10 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/public/">public</a></li>
-          
-          <li><a href="/categories/private/">private</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapsepublic" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              public
-            </a>
-            <small class="text-muted">(Total 10 articles)</small>
-        </h4>
+  
+  
+    <div class="content">
+  <article id="post-AAA-tree" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/AAA-tree/">AAA tree</a>
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/AAA-tree/" class="article-date">
+	  <time datetime="2019-09-25T14:25:20.000Z" itemprop="datePublished">2019-09-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/public/">public</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/学习笔记/">学习笔记</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/AAA-tree/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
     </div>
-    <div id="collapsepublic" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingpublic">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/sol7/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-18T03:35:12.000Z" itemprop="datePublished">2019-11-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 杂题乱做 Round7
-</a>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="AAA树"><a href="#AAA树" class="headerlink" title="AAA树"></a>AAA树</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>在学习了 $LCT$ 之后，树上一些常见的问题已经不能满足选手们的需求，从而出现了这样一道题：</p>
+<p>[bzoj3153]Sone1</p>
+<p>它要求选手们维护子树覆盖，子树加，子树最值，子树和，链覆盖，链加，链最值，链和，换父亲，换根这十二个<del>基本</del>操作</p>
+<p><del>假如没有换父亲的确是树链剖分的基本操作</del></p>
+<p><del>假如没有子树修改与查询的确是 $LCT$ 的基本操作</del></p>
+<p><del>然而现在都有了</del></p>
+<p>于是就有了 $AAA$ 树和 $toptree$ 来解决上述问题，由于笔者现在并不会后者，因此该篇文章主要讲述 $AAA$ 树的原理与实现</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p> $LCT$ 无法解决子树问题的原因是它只维护了实链的信息而子树问题要涉及到虚子树的信息</p>
+<p>在静态树问题中，有链分治这种分治方法，其原理是用不同的数据结构对重链和实链分开进行维护并及时合并轻重链信息</p>
+<p>考虑对每个 $LCT$ 上的点建一个数据结构来统计其虚子树的信息，它要具备如下功能：</p>
+<ol>
+<li>能够快速删除与加入新的节点</li>
+<li>能够快速合并其管辖点的信息</li>
+</ol>
+<p>不难想到建出一棵平衡树来维护其虚子树的信息，在这里笔者选择使用 $splay$ ，我们将原树进行改造，使得每个点 $p$ 有四个儿子，其中 $son_{p,0/1}$ 表示维护其实链 $LCT$ 的儿子，而 $son_{p,2/3}$ 分别是维护其虚子树的 $splay$ 的根，对于维护虚子树的节点，我们强制其在 $splay$ 的叶节点，下面是一个简单的例子：</p>
+<p>原树：<br><img src="/AAA-tree/tree1.jpg"><br>$AAA$ 树：<br><img src="/AAA-tree/tree2.jpg"></p>
+<p>现在要实现加点和删点进其虚儿子所在的 $splay$</p>
+<p>加点：将该点插入 $splay$ 中（可能会新建一个如上图中的 $A$ 节点）<br>删点：若该点父亲是 $A$ 点，就删掉该点和其父亲，并将自己的兄弟放到父亲的位置，否则直接删掉该点即可</p>
+<p>然后 $access$ 操作就直接在换右儿子的时候利用上述两个函数即可，加点对应将实边换成虚边，删点对应将虚边换成实边</p>
+<p>维护标记：</p>
+<p>每个节点记录以下三种信息： $cha,sub,all$ 表示实链的信息，整棵实 $splay$ 上面挂着的所有虚子树的信息，以及整棵子树的信息</p>
+<p>$pushup$ 操作：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+cha=&son[0]->cha+son[1]->cha\\
+sub=&son[0]->sub+son[1]->sub+son[2]->all+son[3]->all\\
+all=&cha+sub\\
+\end{aligned}</script><p><del>简单易懂</del></p>
+<p>先要维护两个维护树形态的标记： $rev,inr$</p>
+<p>分别表示翻转标记以及其是否是 $A$ 点</p>
+<p>然后要维护两个标记 $All,Cha$</p>
+<p>$All$ 表示对整棵子树进行的修改，但不修改实链的信息， $Cha$ 表示对实链进行修改</p>
+<p><strong>$All$ 标记在传实儿子的时候不修改链，在传虚儿子的时候要修改链</strong></p>
+<p>$cut(v)$ 操作： $access(fa_v)$ ，然后在其虚 $splay$ 中删掉 $v$</p>
+<p>$link(u,v)$ 操作：$access(v)$ ，然后把 $u$ 加进其虚 $splay$ 中</p>
+<p>链操作同 $LCT$ ，不过只跟 $cha$ 有关</p>
+<p>子树操作：修改/查询点 $u$ 的时候，直接 $access(u)$ ，然后其子树信息都在虚 $splay$ 中，用 $u$ 的单点信息和其虚子树信息拼接起来即可</p>
+<p>这样就可以尝试解决该题<del>或者直接去世</del>了</p>
 
-
-              
-                
-<a href="/csp2019/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-17T06:40:02.000Z" itemprop="datePublished">2019-11-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> CSP-S 2019 泪奔记
-</a>
-
-
-              
-                
-<a href="/sol6/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-07T08:41:52.000Z" itemprop="datePublished">2019-11-07</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 杂题乱做 Round6
-</a>
-
-
-              
-                
-<a href="/sol5/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-05T14:40:45.000Z" itemprop="datePublished">2019-11-05</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 杂题乱做 Round5
-</a>
-
-
-              
-                
-<a href="/sol4/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-03T14:46:34.000Z" itemprop="datePublished">2019-11-03</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 杂题乱做 Round4
-</a>
-
-
-              
-                
-<a href="/sol3/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-11-01T14:39:01.000Z" itemprop="datePublished">2019-11-01</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 杂题乱做 Round3
-</a>
-
-
-              
-                
-<a href="/sol2/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-10-28T14:56:09.000Z" itemprop="datePublished">2019-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 杂题乱做 Round2
-</a>
-
-
-              
-                
-<a href="/sol1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-10-17T03:28:59.000Z" itemprop="datePublished">2019-10-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 杂题乱做 Round1
-</a>
-
-
-              
-                
-<a href="/gym102059/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-10-16T23:47:42.000Z" itemprop="datePublished">2019-10-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> CodeForces gym 102059 简要题解
-</a>
-
-
-              
-                
-<a href="/CF1244/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2019-10-14T08:59:39.000Z" itemprop="datePublished">2019-10-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> CodeForces 1244 简要题解
-</a>
-
-
-              
-            </div>
-        </div>
+      
     </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://ldxcaicai.github.io/AAA-tree/" title="AAA tree" target="_blank" rel="external">http://ldxcaicai.github.io/AAA-tree/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/ldxcaicai" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/ss.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/ldxcaicai" target="_blank"><span class="text-dark">ldxcaicai</span><small class="ml-1x">a loser</small></a></h3>
+        <div>Glory is just in sight.</div>
+      </div>
+    </figure>
+  </div>
 </div>
+
+
     </div>
   </article>
+  
+</div>
+
+  
+
   
     
     <nav class="bar bar-footer clearfix" data-stick-bottom>
         <div class="bar-inner">
         <div class="pager pull-left">
             
-            <a class="prev disabled" href="javascript:;"><i class="icon icon-angle-left"></i> 上一页</a>
+            <a class="extend prev" rel="prev" href="/page/3/"><i class="icon icon-angle-left"></i> 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
             
-            <span class="page-number current">1</span><a class="page-number" href="/categories/public/page/2/">2</a><a class="page-number" href="/categories/public/page/3/">3</a><a class="extend next" rel="next" href="/categories/public/page/2/">下一页 <i class="icon icon-angle-right"></i></a>
+            <a class="next disabled" href="javascript:;">下一页 <i class="icon icon-angle-right"></i></a>
             
         </div>
-        <div class="total-article bar-right">Page 1 of 3</div>
+        <div class="total-article bar-right">Page 4 of 4</div>
         </div>
     </nav>
     
@@ -554,6 +568,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
 <script src="/js/insight.js"></script>
 
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
