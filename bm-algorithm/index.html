@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="算法引入Berlekamp-Massey算法可以在$O(n^2)$的时间内求出长度为$n$的已知数列的最短递推式，再配合常系数齐次线性递推就可以快速求出数列的任意项。 现在给你一个数列，考虑如何构造出其最短递推式。 算法流程对于一个$n$项的数列 $A=\{a_1,a_2,…,a_n\}$ 和另一个$m$项的数列 $R=\{r_1,r_2,…,r_m\}(m\le n)$ ，当$\forall k">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T15:33:28.411Z">
+<meta property="og:updated_time" content="2019-12-04T03:42:43.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Berlekamp-Massey algorithm">
 <meta name="twitter:description" content="算法引入Berlekamp-Massey算法可以在$O(n^2)$的时间内求出长度为$n$的已知数列的最短递推式，再配合常系数齐次线性递推就可以快速求出数列的任意项。 现在给你一个数列，考虑如何构造出其最短递推式。 算法流程对于一个$n$项的数列 $A=\{a_1,a_2,…,a_n\}$ 和另一个$m$项的数列 $R=\{r_1,r_2,…,r_m\}(m\le n)$ ，当$\forall k">
@@ -423,18 +423,19 @@
 <li>$\Delta n=\sum\limits_{i=1}^{m’}R_{\Delta,i}a_{n-i}$</li>
 <li>$\forall m’&lt;k&lt;n,0=\sum\limits_{i=1}^{m’}R_{\Delta,i}a_{k-i}$</li>
 </ol>
-<p>考虑到$R_{cur-1}$这个递推式满足类似的条件：</p>
+<p>考虑到$R_{best}$这个递推式满足类似的条件，其中 $best$ 是满足 $fail_{best}-len_{best}$ 最小的一项：</p>
 <ol>
-<li>$\Delta fail_{cur-1}=a_{fail_{cur-1}}-\sum\limits_{i=1}^{m_{cur-1}}R_{cur-1,i}a_{fail_{cur-1}-i}$</li>
-<li>$\forall m_{cur-1}&lt;k&lt;fail_{cur-1},0=a_k-\sum\limits_{i=1}^{m_{cur-1}}R_{cur-1,i}a_{k-i}$</li>
+<li>$\Delta fail_{best}=a_{fail_{best}}-\sum\limits_{i=1}^{m_{best}}R_{best,i}a_{fail_{best}-i}$</li>
+<li>$\forall m_{best}&lt;k&lt;fail_{best},0=a_k-\sum\limits_{i=1}^{m_{best}}R_{best,i}a_{k-i}$</li>
 </ol>
-<p>我们设$t=\frac{\Delta n}{\Delta fail_{cur-1}},b=\{t,-t\times r_{cur-1,1},-t\times r_{cur-1,2},…,-t\times r_{cur-1,m_{cur-1}}\}$</p>
+<p>我们设$t=\frac{\Delta n}{\Delta fail_{best}},b=\{t,-t\times r_{best,1},-t\times r_{best,2},…,-t\times r_{best,m_{best}}\}$</p>
 <p>这启示我们按照如下方式构造$R_{\Delta}$：</p>
 <ol>
-<li>$\forall fail_{cur-1}&lt;k&lt;n$，我们给$a_{n-k}$分配$0$作为系数</li>
-<li>$\forall fail_{cur-1}-m_{cur-1}\le k\le fail_{cur-1}$,我们给$a_{n-k}$分配$b_{fail_{cur-1}-k+1}$作为系数。</li>
+<li>$\forall fail_{best}&lt;k&lt;n$，我们给$a_{n-k}$分配$0$作为系数</li>
+<li>$\forall fail_{best}-m_{best}\le k\le fail_{best}$,我们给$a_{n-k}$分配$b_{fail_{best}-k+1}$作为系数。</li>
 </ol>
-<p>这样构造出来的数列 <script type="math/tex">R_{\Delta}=\{0,0,...,0,t,-t\times r_{cur-1,1},-t\times r_{cur-1,2},...,-t\times r_{cur-1,m_{cur-1}}\}</script>满足条件</p>
+<p>这样构造出来的数列 </p>
+<script type="math/tex; mode=display">R_{\Delta}=\{0,0,...,0,t,-t\times r_{best,1},-t\times r_{best,2},...,-t\times r_{best,m_{best}}\}</script><p>满足条件</p>
 <p>再让$R_{cur+1}=R_{cur}+R_{\Delta}$即可。</p>
 <p>由于最坏情况下可能会修改$O(n)$次，所以复杂度$O(n^2)$</p>
 
@@ -495,7 +496,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/SGTtrick/" title="segement tree trick"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/gf/" title="Generating function"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
@@ -655,6 +656,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
