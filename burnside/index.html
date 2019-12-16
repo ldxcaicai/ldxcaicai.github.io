@@ -17,18 +17,18 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>burnside引理 | 自由を渇望する</title>
+  <title>burnside引理简单证明 | 自由を渇望する</title>
   <meta name="description" content="前言：由于博主时不时会忘记这个定理以及它是咋证明的，所以为了方便就干脆自己写一个放 $blog$ 上面  现在给出集合 $\text{X}$ ，设 $\text G$ 是其置换群， $\text C$ 是其着色集，且 $\text G$ 作用在 $\text C$ 下 那么定义 $G(c)=\{f:f\in \text G,f\times c=c\},C(f)=\{c:c\in \text C,f">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="burnside引理">
+<meta property="og:title" content="burnside引理简单证明">
 <meta property="og:url" content="http://ldxcaicai.github.io/burnside/index.html">
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="前言：由于博主时不时会忘记这个定理以及它是咋证明的，所以为了方便就干脆自己写一个放 $blog$ 上面  现在给出集合 $\text{X}$ ，设 $\text G$ 是其置换群， $\text C$ 是其着色集，且 $\text G$ 作用在 $\text C$ 下 那么定义 $G(c)=\{f:f\in \text G,f\times c=c\},C(f)=\{c:c\in \text C,f">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-16T14:12:49.254Z">
+<meta property="og:updated_time" content="2019-12-16T14:15:49.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="burnside引理">
+<meta name="twitter:title" content="burnside引理简单证明">
 <meta name="twitter:description" content="前言：由于博主时不时会忘记这个定理以及它是咋证明的，所以为了方便就干脆自己写一个放 $blog$ 上面  现在给出集合 $\text{X}$ ，设 $\text G$ 是其置换群， $\text C$ 是其着色集，且 $\text G$ 作用在 $\text C$ 下 那么定义 $G(c)=\{f:f\in \text G,f\times c=c\},C(f)=\{c:c\in \text C,f">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/burnside/index.html">
@@ -265,7 +265,7 @@
                 <a class="category-link" href="/categories/public/">public</a>
               </p>
               <p class="item-title">
-                <a href="/burnside/" class="title">burnside引理</a>
+                <a href="/burnside/" class="title">burnside引理简单证明</a>
               </p>
               <p class="item-date">
                 <time datetime="2019-12-16T13:56:40.000Z" itemprop="datePublished">2019-12-16</time>
@@ -362,7 +362,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      burnside引理
+      burnside引理简单证明
     </h1>
   
 
@@ -411,7 +411,7 @@
 <script type="math/tex; mode=display">
 \begin{aligned}
 \sum\limits_{f\in \text G}|C(f)|=&\sum\limits_{c\in \text C}|G(c)|\\
-\sum\limits_{f\in \text G}|C(f)|=&\sum\limits_{c\in\text C}\frac{|\text G|}{|与c等价的着色数|}\\
+\sum\limits_{f\in \text G}|C(f)|=&\sum\limits_{c\in\text C}\frac{|\text G|}{与c等价的着色数}\\
 \sum\limits_{f\in\text G}|C(f)|=&|\text G|\sum\limits_{c\in\text C}\frac{1}{与c等价的着色数}\\
 由于在一个等价类中&每种着色的贡献都是\frac{1}{与c相同的着色数}\\
 所以\sum\limits_{f\in \text G}|C(f)|=&|G|\times N(\text G,\text C)\\
@@ -427,7 +427,7 @@ N(\text G,\text C)=&\frac{\sum\limits_{f\in \text G}|C(f)|}{|\text G|}
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://ldxcaicai.github.io/burnside/" title="burnside引理" target="_blank" rel="external">http://ldxcaicai.github.io/burnside/</a>
+      <a href="http://ldxcaicai.github.io/burnside/" title="burnside引理简单证明" target="_blank" rel="external">http://ldxcaicai.github.io/burnside/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -632,6 +632,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
