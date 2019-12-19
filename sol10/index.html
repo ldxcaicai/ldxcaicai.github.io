@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="机器人高尔夫球赛解题思路：  首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果直接转移。 然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$ 那么暴力 $dp$ 需要特殊处理">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-19T03:10:04.989Z">
+<meta property="og:updated_time" content="2019-12-19T03:57:12.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round10">
 <meta name="twitter:description" content="机器人高尔夫球赛解题思路：  首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果直接转移。 然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$ 那么暴力 $dp$ 需要特殊处理">
@@ -516,7 +516,7 @@ a_j=&\sum\limits_{i=0}^m\binom ji(-1)^{j-i}f_i\\
 \frac{a_j}{j!}=&\frac{(-1)^{j-i}}{(j-i)!}\frac{f_i}{i!}\\
 ntt&求出a_i\\
 res=&\sum\limits_{i=0}^nf_i\binom nix^i(1-x)^{n-i}\\
-=&\sum\limits_{i=0}^n(\sum\limits_{j=0}^m\binom ija_j)x^i(1-x)^{n-i}\\
+=&\sum\limits_{i=0}^n(\sum\limits_{j=0}^m\binom ija_j)x^i(1-x)^{n-i}\binom ni\\
 =&\sum\limits_{j=0}^ma_j\sum\limits_{i=0}^n\binom{n}{i}x^i(1-x)^{n-i}\binom ij\\
 =&\sum\limits_{j=0}^ma_j\binom nj\sum\limits_{i=0}^nx^i(1-x)^{n-i}\binom {n-j}{i-j}\\
 =&\sum\limits_{j=0}^ma_j\binom njx^j\sum\limits_{i=0}^{n-j}x^i(1-x)^{n-j-i}\binom{n-j}i\\
