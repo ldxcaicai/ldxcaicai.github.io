@@ -18,18 +18,18 @@
   
   
   <title>杂题乱做 Round1 | 自由を渇望する</title>
-  <meta name="description" content="线段树解题思路：  &amp;gt; 考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ : &amp;gt;  &amp;gt; 对于一个树根，设其能够管辖的范围为 $[l,">
+  <meta name="description" content="线段树解题思路：  考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ :  对于一个树根，设其能够管辖的范围为 $[l,r]$ ，那">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂题乱做 Round1">
 <meta property="og:url" content="http://ldxcaicai.github.io/sol1/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="线段树解题思路：  &amp;gt; 考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ : &amp;gt;  &amp;gt; 对于一个树根，设其能够管辖的范围为 $[l,">
+<meta property="og:description" content="线段树解题思路：  考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ :  对于一个树根，设其能够管辖的范围为 $[l,r]$ ，那">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T16:17:35.743Z">
+<meta property="og:updated_time" content="2019-12-24T23:52:06.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round1">
-<meta name="twitter:description" content="线段树解题思路：  &amp;gt; 考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ : &amp;gt;  &amp;gt; 对于一个树根，设其能够管辖的范围为 $[l,">
+<meta name="twitter:description" content="线段树解题思路：  考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ :  对于一个树根，设其能够管辖的范围为 $[l,r]$ ，那">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/sol1/index.html">
   
@@ -404,9 +404,9 @@
       
         <h2 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a><a href="http://uoj.ac/problem/196" target="_blank" rel="noopener">线段树</a></h2><details><summary>解题思路：</summary>
 
-> 考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ :
-> 
-> 对于一个树根，设其能够管辖的范围为 $[l,r]$ ，那么最后区间 $[i\ge l,j\le r]$ 中的数的大小不超过树根大小的概率可以 $dp$ 出来，设 $f_{T,i,j}$ 表示在上界 $x$ 确定后，在经过 $T$ 轮操作后区间 $[i,j]$ 的答案不超过 $x$ 的概率，这个直接前缀和优化转移即可，由于数据随机，笛卡尔树高可以视为 $log$ 的，这样复杂度就是对的
+考虑到如果统计统计 $f_{i,j}$ 表示第 $i$ 个位置的数最终等于 $j$ 的概率，然后对于一个位置 $i$ 答案就是 $\sum\limits_{j}f_{i,j}vl_j$ ，然后就能够进行转化，变为求每个位置最终 $\ge j$ 的概率，然后就能够枚举每个排名然后对笛卡尔树的一些子树进行如下 $dp$ :
+
+对于一个树根，设其能够管辖的范围为 $[l,r]$ ，那么最后区间 $[i\ge l,j\le r]$ 中的数的大小不超过树根大小的概率可以 $dp$ 出来，设 $f_{T,i,j}$ 表示在上界 $x$ 确定后，在经过 $T$ 轮操作后区间 $[i,j]$ 的答案不超过 $x$ 的概率，这个直接前缀和优化转移即可，由于数据随机，笛卡尔树高可以视为 $log$ 的，这样复杂度就是对的
 </details>
 <details><summary>CODE</summary>
 
@@ -417,11 +417,11 @@
 <hr>
 <h2 id="愤怒的元首"><a href="#愤怒的元首" class="headerlink" title="愤怒的元首"></a><a href="http://darkbzoj.tk/problem/2863" target="_blank" rel="noopener">愤怒的元首</a></h2><details><summary>解题思路：</summary>
 
-> $DAG$ 计数一般考虑入度为 $0$ 或者出度为 $0$ 的点来进行容斥，因为删掉这些点和它们涉及到的边之后还是个 $DAG$
-> 
-> 设 $f_{i}$ 表示 $i$ 个点的 $DAG$ 方案数， $g_i$ 为至少有 $i$ 个出度为 $0$ 的点的方案数，显然有转移 $g_j=f_{i-j}\binom{i}{j}2^{j\times(i-j)}$ 和 $f_i=\sum\limits_{j=1}^ig_j(-1)^{j-1}$
-> 
-> 这样可以 $O(n^2)$ 搞定了
+$DAG$ 计数一般考虑入度为 $0$ 或者出度为 $0$ 的点来进行容斥，因为删掉这些点和它们涉及到的边之后还是个 $DAG$
+
+设 $f_{i}$ 表示 $i$ 个点的 $DAG$ 方案数， $g_i$ 为至少有 $i$ 个出度为 $0$ 的点的方案数，显然有转移 $g_j=f_{i-j}\binom{i}{j}2^{j\times(i-j)}$ 和 $f_i=\sum\limits_{j=1}^ig_j(-1)^{j-1}$
+
+这样可以 $O(n^2)$ 搞定了
 </details>
 <details><summary>CODE</summary>
 
@@ -432,7 +432,7 @@
 <hr>
 <h2 id="numbers"><a href="#numbers" class="headerlink" title="numbers"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5181" target="_blank" rel="noopener">numbers</a></h2><details><summary>解题思路：</summary>
 
-> 考虑直接转化为求合法括号序列的方案数，这样对于现在的区间 $[l,r]$ ，可以枚举 $l$ 的右括号放的位置然后转移成子区间求解，现在只用考虑合法性如何快速判断，发现是两个不相交的连续区间的信息叠加起来的，于是用二维前缀和来记录限制即可判断合法性
+考虑直接转化为求合法括号序列的方案数，这样对于现在的区间 $[l,r]$ ，可以枚举 $l$ 的右括号放的位置然后转移成子区间求解，现在只用考虑合法性如何快速判断，发现是两个不相交的连续区间的信息叠加起来的，于是用二维前缀和来记录限制即可判断合法性
 </details>
 <details><summary>CODE</summary>
 
@@ -443,7 +443,7 @@
 <hr>
 <h2 id="Dark-Horse"><a href="#Dark-Horse" class="headerlink" title="Dark Horse"></a><a href="https://arc093.contest.atcoder.jp/tasks/arc093_d" target="_blank" rel="noopener">Dark Horse</a></h2><details><summary>解题思路：</summary>
 
-> 把比赛的表倒着画出来，发现是一棵二叉树，这样看来不妨把 $1$ 放在第一个叶子结点最后方案数再乘上 $2^n$ ，然后现在要求的是从第一个叶子到根的路径上不能有非法点，不难想到从大到小枚举非法点在路径上出现的状态，则 $f_{i,j}$ 表示当前走到第 $i$ 个点，从叶子到根的必输位置集合为 $j$ 的方案数，最后容斥一下即可（也可以像我一样在转移的时候就带入容斥系数）
+把比赛的表倒着画出来，发现是一棵二叉树，这样看来不妨把 $1$ 放在第一个叶子结点最后方案数再乘上 $2^n$ ，然后现在要求的是从第一个叶子到根的路径上不能有非法点，不难想到从大到小枚举非法点在路径上出现的状态，则 $f_{i,j}$ 表示当前走到第 $i$ 个点，从叶子到根的必输位置集合为 $j$ 的方案数，最后容斥一下即可（也可以像我一样在转移的时候就带入容斥系数）
 </details>
 <details><summary>CODE</summary>
 
@@ -454,13 +454,13 @@
 <hr>
 <h2 id="Popping-Balls"><a href="#Popping-Balls" class="headerlink" title="Popping Balls"></a><a href="https://code-festival-2017-qualb.contest.atcoder.jp/tasks/code_festival_2017_qualb_e" target="_blank" rel="noopener">Popping Balls</a></h2><details><summary>解题思路：</summary>
 
-> 由于可以选 $1$ ，因为 $s,t$ 只需要用于选出蓝球，这样可以考虑在 $t,s$ 有用的时候才放置它俩上去（因为其余合法方案方案可以用这种方案选出），这样最后的序列一定长这样：
-> 
-> 先有 $x$ 个红球被选，然后在第一个蓝球位置处放下 $t$ ，并选出这个蓝球 ，然后接下来选出的 是 $a$ 个红球和 $b-1$ 个蓝球随意排列（此时应满足 $a+b=m$ 即使得 $t$ 在之后的操作中失效），接着是 $y$ 个红球被选出，然后在第一个蓝球位置处放下 $s$ ，并选出这个蓝球，然后接下来选出的是 $c$ 个红球和 $d-1$ 个蓝球随意排列（此时应满足 $c+d=a$ 理由同 $t$ 那部分），最后的 $z$ 个球直接按照原序列放即可
-> 
-> 然后可以考虑枚举 $x,a,y,c$ 来计算贡献~~然后多半就TLE了~~
-> 
-> 列出式子之后会发现这个四维的玩意儿后面两维的组合数和可以预处理二维前缀和优化，这样复杂度降为了 $O(n^2)$ ，可以通过
+由于可以选 $1$ ，因为 $s,t$ 只需要用于选出蓝球，这样可以考虑在 $t,s$ 有用的时候才放置它俩上去（因为其余合法方案方案可以用这种方案选出），这样最后的序列一定长这样：
+
+先有 $x$ 个红球被选，然后在第一个蓝球位置处放下 $t$ ，并选出这个蓝球 ，然后接下来选出的 是 $a$ 个红球和 $b-1$ 个蓝球随意排列（此时应满足 $a+b=m$ 即使得 $t$ 在之后的操作中失效），接着是 $y$ 个红球被选出，然后在第一个蓝球位置处放下 $s$ ，并选出这个蓝球，然后接下来选出的是 $c$ 个红球和 $d-1$ 个蓝球随意排列（此时应满足 $c+d=a$ 理由同 $t$ 那部分），最后的 $z$ 个球直接按照原序列放即可
+
+然后可以考虑枚举 $x,a,y,c$ 来计算贡献~~然后多半就TLE了~~
+
+列出式子之后会发现这个四维的玩意儿后面两维的组合数和可以预处理二维前缀和优化，这样复杂度降为了 $O(n^2)$ ，可以通过
 </details>
 <details><summary>CODE</summary>
 
@@ -471,9 +471,9 @@
 <hr>
 <h2 id="Placing-Squares"><a href="#Placing-Squares" class="headerlink" title="Placing Squares"></a><a href="https://agc013.contest.atcoder.jp/tasks/agc013_e" target="_blank" rel="noopener">Placing Squares</a></h2><details><summary>解题思路：</summary>
 
-> 首先转化模型，看成有一个 $n$ 个点的序列，你要在空隙中插入挡板，把序列分成若干段，每段要放一个红球和一个蓝球，现在还有 $m$ 个坐标  $\{x_m\}$ ，限制你不能在 $x_i,x_i+1$ 之间放挡板，问方案数
-> 
-> 那么可以设计 $f_{i,0/1/2/3}$ 表示当前扫到了第 $i$ 个点，它在的段内没放球/放了红球/放了蓝球/放了两种球的方案数，这个可以在有无限制的情况下轻松设置转移，由于第一维较大，用矩阵快速幂优化即可
+首先转化模型，看成有一个 $n$ 个点的序列，你要在空隙中插入挡板，把序列分成若干段，每段要放一个红球和一个蓝球，现在还有 $m$ 个坐标  $\{x_m\}$ ，限制你不能在 $x_i,x_i+1$ 之间放挡板，问方案数
+
+那么可以设计 $f_{i,0/1/2/3}$ 表示当前扫到了第 $i$ 个点，它在的段内没放球/放了红球/放了蓝球/放了两种球的方案数，这个可以在有无限制的情况下轻松设置转移，由于第一维较大，用矩阵快速幂优化即可
 </details>
 <details><summary>CODE</summary>
 
@@ -484,34 +484,36 @@
 <hr>
 <h2 id="随机二分图"><a href="#随机二分图" class="headerlink" title="随机二分图"></a><a href="https://loj.ac/problem/2290" target="_blank" rel="noopener">随机二分图</a></h2><details><summary>解题思路：</summary>
 
-> 容易想到去求每种匹配出现的概率，那么答案即为概率之和，现在考虑每类边出现在完美匹配的一个方案中的概率：
-> 
-> 第一类边： $50\%$
-> 
-> 第二类边： 每条边单独出现在一个方案中的概率为 $50\%$ ，但这样的话两条边一起出现的概率降为了 $25\%$ ，于是加入一个能连接四个点的边，其出现概率为  $25\%$
-> 
-> 第三类边： 每条边单独出现在一个方案中的概率为 $50\%$ ，但这样的话两条边一起出现的概率升为了 $25\%$ ，于是加入一个能连接四个点的边，其出现概率为  $-25\%$
-> 
-> 然后考虑把左右图的匹配情况压成一个状态进行转移，由于图没有顺序，每次强制匹配 $lowbit$ 来转移即可，从终态倒着记忆化搜索会访问到很少的有用状态，可以通过此题
+容易想到去求每种匹配出现的概率，那么答案即为概率之和，现在考虑每类边出现在完美匹配的一个方案中的概率：
+
+第一类边： $50\%$
+
+第二类边： 每条边单独出现在一个方案中的概率为 $50\%$ ，但这样的话两条边一起出现的概率降为了 $25\%$ ，于是加入一个能连接四个点的边，其出现概率为  $25\%$
+
+第三类边： 每条边单独出现在一个方案中的概率为 $50\%$ ，但这样的话两条边一起出现的概率升为了 $25\%$ ，于是加入一个能连接四个点的边，其出现概率为  $-25\%$
+
+然后考虑把左右图的匹配情况压成一个状态进行转移，由于图没有顺序，每次强制匹配 $lowbit$ 来转移即可，从终态倒着记忆化搜索会访问到很少的有用状态，可以通过此题
 </details>
 <details><summary>CODE</summary>
+
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;tr1/unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ri register int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> csi const int&amp;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> rlen=<span class="number">1</span>&lt;&lt;<span class="number">18</span>|<span class="number">1</span>;</span><br><span class="line"><span class="keyword">char</span> buf[rlen],*ib=buf,*ob=buf;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> gc() (((ib==ob)&amp;&amp;(ob=(ib=buf)+fread(buf,1,rlen,stdin)),ib==ob)?-1:*ib++)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; vii;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> ch=gc();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(ch))ch=gc();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(ch))ans=((ans&lt;&lt;<span class="number">2</span>)+ans&lt;&lt;<span class="number">1</span>)+(ch^<span class="number">48</span>),ch=gc();</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">readl</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ll ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> ch=gc();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(ch))ch=gc();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isdigit</span>(ch))ans=((ans&lt;&lt;<span class="number">2</span>)+ans&lt;&lt;<span class="number">1</span>)+(ch^<span class="number">48</span>),ch=gc();</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Read</span><span class="params">(<span class="keyword">char</span>*s)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> top=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> ch=gc();</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isalpha</span>(ch))ch=gc();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">isalpha</span>(ch))s[++top]=ch,ch=gc();</span><br><span class="line">	<span class="keyword">return</span> top;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> modular&#123;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> (a+=b)&lt;mod?a:a-mod;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">dec</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> (a-=b)&lt;<span class="number">0</span>?a+mod:a;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;<span class="keyword">return</span> (ll)a*b%mod;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span>&amp;a,<span class="keyword">int</span> b)</span></span>&#123;a=add(a,b);&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Dec</span><span class="params">(<span class="keyword">int</span>&amp;a,<span class="keyword">int</span> b)</span></span>&#123;a=dec(a,b);&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Mul</span><span class="params">(<span class="keyword">int</span>&amp;a,<span class="keyword">int</span> b)</span></span>&#123;a=(ll)a*b%mod;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">ksm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> p)</span></span>&#123;<span class="keyword">int</span> ret=<span class="number">1</span>;<span class="keyword">for</span>(;p;p&gt;&gt;=<span class="number">1</span>,Mul(a,a))(p&amp;<span class="number">1</span>)&amp;&amp;(Mul(ret,a),<span class="number">1</span>);<span class="keyword">return</span> ret;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Inv</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">return</span> ksm(x,mod<span class="number">-2</span>);&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">fix</span><span class="params">(<span class="keyword">int</span>&amp;x)</span></span>&#123;x=(x%mod+mod)%mod;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> modular;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">ckmin</span><span class="params">(T&amp;a,<span class="keyword">const</span> T&amp;b)</span></span>&#123;a&gt;b?a=b:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">ckmax</span><span class="params">(T&amp;a,<span class="keyword">const</span> T&amp;b)</span></span>&#123;a&lt;b?a=b:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inv2=<span class="number">5e8</span>+<span class="number">4</span>,inv4=inv2&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mogic=<span class="number">1e7</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> first[mogic+<span class="number">5</span>];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span>&#123;</span><span class="keyword">int</span> next,ori,vl;&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;edge&gt;E;</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add_</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t=u%mogic+<span class="number">1</span>;</span><br><span class="line">	++cnt;</span><br><span class="line">	E.pb((edge)&#123;first[t],u,v&#125;);</span><br><span class="line">	first[t]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t=x%mogic+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(ri i=first[t];i;i=E[i].next)&#123;</span><br><span class="line">		<span class="keyword">if</span>(E[i].ori==x)<span class="keyword">return</span> E[i].vl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> n,m,pw[<span class="number">31</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;pii&gt;e[<span class="number">1</span>&lt;&lt;<span class="number">15</span>|<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> sta)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!sta)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> t=query(sta);</span><br><span class="line">	<span class="keyword">if</span>(~t)<span class="keyword">return</span> t;</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> st=sta&amp;-sta;</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">0</span>,s;i&lt;e[st].size();++i)&#123;</span><br><span class="line">		s=e[st][i].fi;</span><br><span class="line">		<span class="keyword">if</span>((sta&amp;s)!=s)<span class="keyword">continue</span>;</span><br><span class="line">		Add(res,mul(dfs(sta^s),e[st][i].se));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> add_(sta,res),res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">ifdef</span> ldxcaicai</span></span><br><span class="line">	freopen(<span class="string">"lx.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	n=read(),m=read();</span><br><span class="line">	E.pb((edge)&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;);</span><br><span class="line">	<span class="keyword">for</span>(ri i=<span class="number">0</span>;i&lt;=<span class="number">2</span>*n;++i)pw[i]=<span class="number">1</span>&lt;&lt;i;</span><br><span class="line">	<span class="keyword">for</span>(ri op,x1,y1,x2,y2,i=<span class="number">1</span>;i&lt;=m;++i)&#123;</span><br><span class="line">		op=read();</span><br><span class="line">		x1=read()<span class="number">-1</span>,y1=read()+n<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">switch</span>(op)&#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">0</span>:&#123;</span><br><span class="line">				e[pw[x1]].pb(pii(pw[x1]^pw[y1],inv2));</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>:&#123;</span><br><span class="line">				e[pw[x1]].pb(pii(pw[x1]^pw[y1],inv2));</span><br><span class="line">				x2=read()<span class="number">-1</span>,y2=read()+n<span class="number">-1</span>;</span><br><span class="line">				e[pw[x2]].pb(pii(pw[x2]^pw[y2],inv2));</span><br><span class="line">				<span class="keyword">if</span>(x1!=x2&amp;&amp;y1!=y2)&#123;</span><br><span class="line">					<span class="keyword">if</span>(x1&gt;x2)swap(x1,x2),swap(y1,y2);</span><br><span class="line">					e[pw[x1]].pb(pii(pw[x1]^pw[x2]^pw[y1]^pw[y2],inv4));</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>:&#123;</span><br><span class="line">				e[pw[x1]].pb(pii(pw[x1]^pw[y1],inv2));</span><br><span class="line">				x2=read()<span class="number">-1</span>,y2=read()+n<span class="number">-1</span>;</span><br><span class="line">				e[pw[x2]].pb(pii(pw[x2]^pw[y2],inv2));</span><br><span class="line">				<span class="keyword">if</span>(x1!=x2&amp;&amp;y1!=y2)&#123;</span><br><span class="line">					<span class="keyword">if</span>(x1&gt;x2)swap(x1,x2),swap(y1,y2);</span><br><span class="line">					e[pw[x1]].pb(pii(pw[x1]^pw[x2]^pw[y1]^pw[y2],mod-inv4));</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;mul(dfs(pw[n+n]<span class="number">-1</span>),pw[n]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </details>
 
 <hr>
 <h2 id="Mod-Mod-Mod"><a href="#Mod-Mod-Mod" class="headerlink" title="Mod Mod Mod"></a><a href="https://codeforces.com/contest/889/problem/E" target="_blank" rel="noopener">Mod Mod Mod</a></h2><details><summary>解题思路：</summary>
-> 一个数对一个比它小的数取模，最多取log次就会变成0。我们思考如何利用这个性质。
-> 
-> 如果我们设 $f[x][i]$ 表示题目中的 $f(x,i)$ ，那么每次 $i$ 加一的时候我们都要更新所有的 $f$ 值。
-> 
-> 但简单思考后可以发现答案容易表示成 $i*x+b$ 的形式，那么可以设 $F_{i,num}$ 就代表当 $x\le num$ 时，最大的 $b$ 值。
-> 
-> 下面考虑转移，对于 $num\le a_i-1$显然不用管，对于 $num\ge a_i$ ，有两种转移：
-> 1. $F_{i,num}\rightarrow F_{i+1,num\%a_i}$
-> 2. $F_{i,num}\rightarrow F_{i+1,a_i-1}$
-> 
-> 用 $map$ 维护转移即可，复杂度是 $O(n\log a_1\log n)$
+
+一个数对一个比它小的数取模，最多取log次就会变成0。我们思考如何利用这个性质。
+
+如果我们设 $f[x][i]$ 表示题目中的 $f(x,i)$ ，那么每次 $i$ 加一的时候我们都要更新所有的 $f$ 值。
+
+但简单思考后可以发现答案容易表示成 $i*x+b$ 的形式，那么可以设 $F_{i,num}$ 就代表当 $x\le num$ 时，最大的 $b$ 值。
+
+下面考虑转移，对于 $num\le a_i-1$显然不用管，对于 $num\ge a_i$ ，有两种转移：
+1. $F_{i,num}\rightarrow F_{i+1,num\%a_i}$
+2. $F_{i,num}\rightarrow F_{i+1,a_i-1}$
+
+用 $map$ 维护转移即可，复杂度是 $O(n\log a_1\log n)$
 
 <details><summary>CODE</summary>
 

@@ -18,18 +18,18 @@
   
   
   <title>杂题乱做 Round4 | 自由を渇望する</title>
-  <meta name="description" content="交与并解题思路：  &amp;gt; 容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替 &amp;gt;  &amp;gt; 那么对于每个区间找一个跟它交并长度乘积最大的区间即可 &amp;gt;  &amp;gt; 发现有两种相交和包含，那么先考虑如何处理包含的情况 &amp;gt;  &amp;gt; 考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性">
+  <meta name="description" content="交与并解题思路：  容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替  那么对于每个区间找一个跟它交并长度乘积最大的区间即可  发现有两种相交和包含，那么先考虑如何处理包含的情况  考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性质：  假设存在 $A\su">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂题乱做 Round4">
 <meta property="og:url" content="http://ldxcaicai.github.io/sol4/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="交与并解题思路：  &amp;gt; 容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替 &amp;gt;  &amp;gt; 那么对于每个区间找一个跟它交并长度乘积最大的区间即可 &amp;gt;  &amp;gt; 发现有两种相交和包含，那么先考虑如何处理包含的情况 &amp;gt;  &amp;gt; 考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性">
+<meta property="og:description" content="交与并解题思路：  容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替  那么对于每个区间找一个跟它交并长度乘积最大的区间即可  发现有两种相交和包含，那么先考虑如何处理包含的情况  考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性质：  假设存在 $A\su">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T16:23:01.982Z">
+<meta property="og:updated_time" content="2019-12-24T23:55:37.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round4">
-<meta name="twitter:description" content="交与并解题思路：  &amp;gt; 容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替 &amp;gt;  &amp;gt; 那么对于每个区间找一个跟它交并长度乘积最大的区间即可 &amp;gt;  &amp;gt; 发现有两种相交和包含，那么先考虑如何处理包含的情况 &amp;gt;  &amp;gt; 考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性">
+<meta name="twitter:description" content="交与并解题思路：  容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替  那么对于每个区间找一个跟它交并长度乘积最大的区间即可  发现有两种相交和包含，那么先考虑如何处理包含的情况  考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性质：  假设存在 $A\su">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/sol4/index.html">
   
@@ -404,17 +404,17 @@
       
         <h2 id="交与并"><a href="#交与并" class="headerlink" title="交与并"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2687" target="_blank" rel="noopener">交与并</a></h2><details><summary>解题思路：</summary>
 
-> 容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替
-> 
-> 那么对于每个区间找一个跟它交并长度乘积最大的区间即可
-> 
-> 发现有两种相交和包含，那么先考虑如何处理包含的情况
-> 
-> 考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性质：
-> 
-> 假设存在 $A\subset B,A\subset C$ ，那么 $B,C$ 产生的贡献优于 $A,B$ 和 $A,C$ 产生的贡献
-> 
-> 这样就可以放心搞掉所有被包含的区间了，剩下的区间两两不包含且左右端点均递增，于是区间 $i,j$ 的贡献为 $(r_i-l_j+1)\times(r_j-l_i+1)$ 拆开看发现有决策单调性，直接分治搞搞即可
+容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替
+
+那么对于每个区间找一个跟它交并长度乘积最大的区间即可
+
+发现有两种相交和包含，那么先考虑如何处理包含的情况
+
+考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性质：
+
+假设存在 $A\subset B,A\subset C$ ，那么 $B,C$ 产生的贡献优于 $A,B$ 和 $A,C$ 产生的贡献
+
+这样就可以放心搞掉所有被包含的区间了，剩下的区间两两不包含且左右端点均递增，于是区间 $i,j$ 的贡献为 $(r_i-l_j+1)\times(r_j-l_i+1)$ 拆开看发现有决策单调性，直接分治搞搞即可
 </details>
 <details><summary>CODE</summary>
 
@@ -425,9 +425,9 @@
 <hr>
 <h2 id="地图"><a href="#地图" class="headerlink" title="地图"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2933" target="_blank" rel="noopener">地图</a></h2><details><summary>解题思路：</summary>
 
-> 首先考虑一个贪心，将所有数进行排序然后分成不超过 $m$ 块一定是最优的，证明显然
-> 
-> 然后就可以 $f_{i,j}$ 表示前 $i$ 个数分为 $j$ 块的最优贡献，预处理所有区间的贡献即可，复杂度 $O(n^2m)$
+首先考虑一个贪心，将所有数进行排序然后分成不超过 $m$ 块一定是最优的，证明显然
+
+然后就可以 $f_{i,j}$ 表示前 $i$ 个数分为 $j$ 块的最优贡献，预处理所有区间的贡献即可，复杂度 $O(n^2m)$
 </details>
 <details><summary>CODE</summary>
 
@@ -438,7 +438,7 @@
 <hr>
 <h2 id="魔兽地图DotR"><a href="#魔兽地图DotR" class="headerlink" title="魔兽地图DotR"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1017" target="_blank" rel="noopener">魔兽地图DotR</a></h2><details><summary>解题思路：</summary>
 
-> 设 $f_{i,j,k}$ 表示 $i$ 为根的子树花费至多 $j$ 元，最后拼出来了 $k$ 个 $i$ 的最大贡献，然后由于是森林因此要分组转移，转移的时候利用提前计算贡献的思想加上后缀和优化就好
+设 $f_{i,j,k}$ 表示 $i$ 为根的子树花费至多 $j$ 元，最后拼出来了 $k$ 个 $i$ 的最大贡献，然后由于是森林因此要分组转移，转移的时候利用提前计算贡献的思想加上后缀和优化就好
 </details>
 <details><summary>CODE</summary>
 
@@ -449,9 +449,9 @@
 <hr>
 <h2 id="小-Y-和二叉树"><a href="#小-Y-和二叉树" class="headerlink" title="小 Y 和二叉树"></a><a href="https://loj.ac/problem/2324" target="_blank" rel="noopener">小 Y 和二叉树</a></h2><details><summary>解题思路：</summary>
 
-> 显然要选一个 $du\le2$ 的最小编号作为根，剩下的用 $dfs$ 处理出子树中 $du\le2$ 的最小编号来贪心构造即可
-> 
-> ~~实际上就是分类讨论一波~~
+显然要选一个 $du\le2$ 的最小编号作为根，剩下的用 $dfs$ 处理出子树中 $du\le2$ 的最小编号来贪心构造即可
+
+~~实际上就是分类讨论一波~~
 </details>
 <details><summary>CODE</summary>
 
@@ -462,9 +462,9 @@
 <hr>
 <h2 id="Anthem-of-Berland"><a href="#Anthem-of-Berland" class="headerlink" title="Anthem of Berland"></a><a href="https://codeforces.com/contest/808/problem/G" target="_blank" rel="noopener">Anthem of Berland</a></h2><details><summary>解题思路：</summary>
 
-> 有一个很显然的暴力思路 $f_{i,j}$ 表示走到 $s$ 前 $i$ 为匹配到 $t$ 的第 $j$ 位的最优值，然后暴力转移（貌似还能过）
-> 
-> 现在考虑一个不那么暴力的思路，设 $f_i$ 表示前 $i$ 位的最优值，首先考虑 $s[i-m+1\cdots i]$ 是否能与 $t$ 匹配，如果可以就能从其 $border$ ， $border$ 的 $border$ 等位置转移过来，因此我们再记录一个 $g_i$ 表示以 $i$ 结尾的位置跟 $t$ 匹配上的最优值，然后就能转移啦
+有一个很显然的暴力思路 $f_{i,j}$ 表示走到 $s$ 前 $i$ 为匹配到 $t$ 的第 $j$ 位的最优值，然后暴力转移（貌似还能过）
+
+现在考虑一个不那么暴力的思路，设 $f_i$ 表示前 $i$ 位的最优值，首先考虑 $s[i-m+1\cdots i]$ 是否能与 $t$ 匹配，如果可以就能从其 $border$ ， $border$ 的 $border$ 等位置转移过来，因此我们再记录一个 $g_i$ 表示以 $i$ 结尾的位置跟 $t$ 匹配上的最优值，然后就能转移啦
 </details>
 <details><summary>CODE</summary>
 
@@ -475,14 +475,14 @@
 <hr>
 <h2 id="火鼠的皮衣-不焦躁的内心"><a href="#火鼠的皮衣-不焦躁的内心" class="headerlink" title="火鼠的皮衣 -不焦躁的内心-"></a><a href="https://www.cometoj.com/contest/72/problem/%EF%BC%A4?problem_id=4033" target="_blank" rel="noopener">火鼠的皮衣 -不焦躁的内心-</a></h2><details><summary>解题思路：</summary>
 
-> 推式子题：
-> $$
-> \begin{aligned}
-> =&\sum\limits_{i=0}^{\lfloor\frac{n}2\rfloor}(\sqrt a)^{2i}b^{n-2i}C_{n}^{2i}\\
-> =&\sum\limits_{i=0}^n(\sqrt a)^ib^{n-i}C_{n}^i[2|i]
-> \end{aligned}
-> $$
-> 单位根反演一下成 $sb$ 题了
+推式子题：
+$$
+\begin{aligned}
+=&\sum\limits_{i=0}^{\lfloor\frac{n}2\rfloor}(\sqrt a)^{2i}b^{n-2i}C_{n}^{2i}\\
+=&\sum\limits_{i=0}^n(\sqrt a)^ib^{n-i}C_{n}^i[2|i]
+\end{aligned}
+$$
+单位根反演一下成 $sb$ 题了
 </details>
 <details><summary>CODE</summary>
 
@@ -493,11 +493,11 @@
 <hr>
 <h2 id="Ternary-String-Counting"><a href="#Ternary-String-Counting" class="headerlink" title="Ternary String Counting"></a><a href="https://www.cometoj.com/contest/71/problem/E?problem_id=4020" target="_blank" rel="noopener">Ternary String Counting</a></h2><details><summary>解题思路：</summary>
 
-> 设 $f_{i,j,k}$ 表示填了前 $i$ 位，最近不同颜色出现位置为 $j,k$ 的方案数 $(i>j>k)$ ，然后能得到如下转移：
-> 1. $f_{i,j,k}\rightarrow f_{i+1,i,k}$
-> 2. $f_{i,j,k}\rightarrow f_{i+1,j,k}$
-> 3. $f_{i,j,k}\rightarrow f_{i+1,i,j}$
-> 然后把每个 $i$ 对应的 $f$ 矩阵拎出来看发现等价于是每次给你画一个矩形，把外面的值变为 $0$ ，然后将一列/一行的和加给一个格子，并且一个位置被清零后之后那个地方不会再被修改，且对于每一行来说有值的是连续区间，于是对每一行维护有值的左右端点，行和，列和即可
+设 $f_{i,j,k}$ 表示填了前 $i$ 位，最近不同颜色出现位置为 $j,k$ 的方案数 $(i>j>k)$ ，然后能得到如下转移：
+1. $f_{i,j,k}\rightarrow f_{i+1,i,k}$
+2. $f_{i,j,k}\rightarrow f_{i+1,j,k}$
+3. $f_{i,j,k}\rightarrow f_{i+1,i,j}$
+然后把每个 $i$ 对应的 $f$ 矩阵拎出来看发现等价于是每次给你画一个矩形，把外面的值变为 $0$ ，然后将一列/一行的和加给一个格子，并且一个位置被清零后之后那个地方不会再被修改，且对于每一行来说有值的是连续区间，于是对每一行维护有值的左右端点，行和，列和即可
 </details>
 <details><summary>CODE</summary>
 

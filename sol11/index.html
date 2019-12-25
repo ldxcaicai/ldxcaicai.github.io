@@ -18,18 +18,18 @@
   
   
   <title>杂题乱做 Round11 | 自由を渇望する</title>
-  <meta name="description" content="Triple解题思路：  &amp;gt; 还是跟[这题](https://ldxcaicai.github.io/sol9/#%E9%BB%8E%E6%98%8E%E5%89%8D%E7%9A%84%E5%B7%A7%E5%85%8B%E5%8A%9B)差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对">
+  <meta name="description" content="Triple解题思路：  还是跟 黎明前的巧克力 差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对答案的贡献一定是 $\pm a\pm b\pm c$ ，但直接 $fwt$ 之后解方程常数实在太大，考虑优化，发现可以把式子改写成 $\sum\limits_{i=1}^n(a+b^{Y_i\">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂题乱做 Round11">
 <meta property="og:url" content="http://ldxcaicai.github.io/sol11/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="Triple解题思路：  &amp;gt; 还是跟[这题](https://ldxcaicai.github.io/sol9/#%E9%BB%8E%E6%98%8E%E5%89%8D%E7%9A%84%E5%B7%A7%E5%85%8B%E5%8A%9B)差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对">
+<meta property="og:description" content="Triple解题思路：  还是跟 黎明前的巧克力 差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对答案的贡献一定是 $\pm a\pm b\pm c$ ，但直接 $fwt$ 之后解方程常数实在太大，考虑优化，发现可以把式子改写成 $\sum\limits_{i=1}^n(a+b^{Y_i\">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T16:34:14.171Z">
+<meta property="og:updated_time" content="2019-12-25T00:05:39.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round11">
-<meta name="twitter:description" content="Triple解题思路：  &amp;gt; 还是跟[这题](https://ldxcaicai.github.io/sol9/#%E9%BB%8E%E6%98%8E%E5%89%8D%E7%9A%84%E5%B7%A7%E5%85%8B%E5%8A%9B)差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对">
+<meta name="twitter:description" content="Triple解题思路：  还是跟 黎明前的巧克力 差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对答案的贡献一定是 $\pm a\pm b\pm c$ ，但直接 $fwt$ 之后解方程常数实在太大，考虑优化，发现可以把式子改写成 $\sum\limits_{i=1}^n(a+b^{Y_i\">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/sol11/index.html">
   
@@ -404,7 +404,7 @@
       
         <h2 id="Triple"><a href="#Triple" class="headerlink" title="Triple"></a><a href="https://www.luogu.com.cn/problem/CF1119H" target="_blank" rel="noopener">Triple</a></h2><details><summary>解题思路：</summary>
 
-> 还是跟[这题](https://ldxcaicai.github.io/sol9/#%E9%BB%8E%E6%98%8E%E5%89%8D%E7%9A%84%E5%B7%A7%E5%85%8B%E5%8A%9B)差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对答案的贡献一定是 $\pm a\pm b\pm c$ ，但直接 $fwt$ 之后解方程常数实在太大，考虑优化，发现可以把式子改写成 $\sum\limits_{i=1}^n(a+b^{Y_i\oplus X_i}+c^{Z_i\oplus X_i})$ 最后给结果异或上 $\oplus_{i=1}^nX_i$ ，显然上述两种方式得到的结果是一样的，那么这次每个式子对答案的贡献就是 $a\pm b\pm c$ ，于是就如同前置题目一样分别把 $\sum\limits_{i=1}^nx^{Y_i\oplus X_i},\sum\limits_{i=1}^nx^{Z_i\oplus X_i},\sum\limits_{i=1}^nx^{Y_i\oplus Z_i}$ 给 $dwt$ 掉，算成正确点值之后再 $idwt$ 回去就行了
+还是跟 黎明前的巧克力 差不多，构造集合幂级数，那么答案等于 $\prod\limits_{i=1}^n(ax^{X_i}+bx^{Y_i}+cx^{Z_i})$ ，这样每一个式子对答案的贡献一定是 $\pm a\pm b\pm c$ ，但直接 $fwt$ 之后解方程常数实在太大，考虑优化，发现可以把式子改写成 $\sum\limits_{i=1}^n(a+b^{Y_i\oplus X_i}+c^{Z_i\oplus X_i})$ 最后给结果异或上 $\oplus_{i=1}^nX_i$ ，显然上述两种方式得到的结果是一样的，那么这次每个式子对答案的贡献就是 $a\pm b\pm c$ ，于是就如同前置题目一样分别把 $\sum\limits_{i=1}^nx^{Y_i\oplus X_i},\sum\limits_{i=1}^nx^{Z_i\oplus X_i},\sum\limits_{i=1}^nx^{Y_i\oplus Z_i}$ 给 $dwt$ 掉，算成正确点值之后再 $idwt$ 回去就行了
 </details>
 <details><summary>CODE</summary>
 
@@ -415,11 +415,11 @@
 <hr>
 <h2 id="小-Y-的背包计数问题"><a href="#小-Y-的背包计数问题" class="headerlink" title="小 Y 的背包计数问题"></a><a href="https://loj.ac/problem/6089" target="_blank" rel="noopener">小 Y 的背包计数问题</a></h2><details><summary>解题思路：</summary>
 
-> 对于第 $i$ 种物品，如果按照模 $i$ 的余数记录前缀和做背包 $DP$ 的话复杂度是 $O(ni)$ 的，那么考虑对前 $K$ 种物品按照上述做法进行背包，那么后面的物品最多能选 $\frac nK$ 个，所以考虑如下 $DP$ ，设后面所有物品一共选了 $i$ 个，总和为 $j$ 的方案数，对于转移作如下考虑，我们想象这 $i$ 个物品排好序放在一个序列上，现在有两种操作：
-> 1. 在队首插入一个大小为 $K+1$ 的物品
-> 2. 给当前所有物品权值+1
+对于第 $i$ 种物品，如果按照模 $i$ 的余数记录前缀和做背包 $DP$ 的话复杂度是 $O(ni)$ 的，那么考虑对前 $K$ 种物品按照上述做法进行背包，那么后面的物品最多能选 $\frac nK$ 个，所以考虑如下 $DP$ ，设后面所有物品一共选了 $i$ 个，总和为 $j$ 的方案数，对于转移作如下考虑，我们想象这 $i$ 个物品排好序放在一个序列上，现在有两种操作：
+1. 在队首插入一个大小为 $K+1$ 的物品
+2. 给当前所有物品权值+1
 
-> 这样能做到不重不漏，复杂度为 $O(\frac{n^2}K)$ ，因此 $K$ 取 $\sqrt n$ 时最优
+这样能做到不重不漏，复杂度为 $O(\frac{n^2}K)$ ，因此 $K$ 取 $\sqrt n$ 时最优
 </details>
 <details><summary>CODE</summary>
 
@@ -430,8 +430,8 @@
 <hr>
 <h2 id="最大前缀和"><a href="#最大前缀和" class="headerlink" title="最大前缀和"></a><a href="https://loj.ac/problem/6433" target="_blank" rel="noopener">最大前缀和</a></h2><details><summary>解题思路：</summary>
 
-> 暴力枚举每种前缀的集合为最大前缀和的答案那么后面填上的数组成的任意前缀和都必须小于0，把这个方案数设为 $g$
-> 类似考虑一个集合作为最大前缀和，把这个序列反过来，则一定不存在前缀和小于0，于是同理定义一个 $f$ ，把这两个状压 $dp$ 出来即可
+暴力枚举每种前缀的集合为最大前缀和的答案那么后面填上的数组成的任意前缀和都必须小于0，把这个方案数设为 $g$
+类似考虑一个集合作为最大前缀和，把这个序列反过来，则一定不存在前缀和小于0，于是同理定义一个 $f$ ，把这两个状压 $dp$ 出来即可
 </details>
 <details><summary>CODE</summary>
 
@@ -442,7 +442,7 @@
 <hr>
 <h2 id="Chef-and-Horcrux"><a href="#Chef-and-Horcrux" class="headerlink" title="Chef and Horcrux"></a><a href="https://www.codechef.com/problems/XORTREEH" target="_blank" rel="noopener">Chef and Horcrux</a></h2><details><summary>解题思路：</summary>
 
-> 先简单求出 $mex$ 为 $i$ 的子序列个数，然后直接 $K$ 进制 $fwt$ 转点值，然后快速幂一下再转回去统计答案就完了
+先简单求出 $mex$ 为 $i$ 的子序列个数，然后直接 $K$ 进制 $fwt$ 转点值，然后快速幂一下再转回去统计答案就完了
 </details>
 <details><summary>CODE</summary>
 
@@ -453,7 +453,7 @@
 <hr>
 <h2 id="生成树求和"><a href="#生成树求和" class="headerlink" title="生成树求和"></a><a href="https://loj.ac/problem/6271" target="_blank" rel="noopener">生成树求和</a></h2><details><summary>解题思路：</summary>
 
-> 主要是得观察到可以按位考虑，那么每一位本来应该是做不进位加法但是矩阵树只能做乘法，因此我们将其转为点值，矩阵树之后再转回来即可
+主要是得观察到可以按位考虑，那么每一位本来应该是做不进位加法但是矩阵树只能做乘法，因此我们将其转为点值，矩阵树之后再转回来即可
 </details>
 <details><summary>CODE</summary>
 
@@ -464,7 +464,7 @@
 <hr>
 <h2 id="Petya-and-Sequence"><a href="#Petya-and-Sequence" class="headerlink" title="Petya and Sequence"></a><a href="https://www.codechef.com/problems/REALSET" target="_blank" rel="noopener">Petya and Sequence</a></h2><details><summary>解题思路：</summary>
 
-> 考虑如何判定，发现把 $B$ 给 $reverse$ 过来就是在做循环卷积，那么相当于是问将 $A$ 在转点值之后有没有零项，于是莽一个 $Bluestein's\ algorithm$ 就行了
+考虑如何判定，发现把 $B$ 给 $reverse$ 过来就是在做循环卷积，那么相当于是问将 $A$ 在转点值之后有没有零项，于是莽一个 $Bluestein's\ algorithm$ 就行了
 </details>
 <details><summary>CODE</summary>
 
@@ -475,15 +475,15 @@
 <hr>
 <h2 id="Call-It-What-You-Want"><a href="#Call-It-What-You-Want" class="headerlink" title="Call It What You Want"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6352" target="_blank" rel="noopener">Call It What You Want</a></h2><details><summary>解题思路：</summary>
 
-> 大概考察了分圆多项式和莫比乌斯函数的一些小性质
-> 
-> 首先设 $f_n(x)=x^n-1$ ，那么有 $f_n(x)=\prod\limits_{d|n}\Phi_d(x)$ ，进行多项式取对， $\ln (x^n-1)=\sum\limits_{d|n}\ln(\Phi_d(x))$ 
-> 
-> 然后莫比乌斯反演一下： $\ln(\Phi_n(x))=\sum\limits_{d|n}\mu(d)\ln(x^{\frac nd}-1)$
-> 
-> 然后 $exp$ 回去： $\Phi_n(x)=\prod\limits_{d|n}(x^d-1)^{\mu(\frac nd)}$
-> 
-> 考虑到 $\mu(x)$ 只在 $x$ 没有平方因子的时候有贡献，而 $2\times3\times5\times7\times11\times13\le100000\le2\times3\times5\times7\times11\times13\times17$ ，因此可以暴力状压每个数的有贡献的约数
+大概考察了分圆多项式和莫比乌斯函数的一些小性质
+
+首先设 $f_n(x)=x^n-1$ ，那么有 $f_n(x)=\prod\limits_{d|n}\Phi_d(x)$ ，进行多项式取对， $\ln (x^n-1)=\sum\limits_{d|n}\ln(\Phi_d(x))$ 
+
+然后莫比乌斯反演一下： $\ln(\Phi_n(x))=\sum\limits_{d|n}\mu(d)\ln(x^{\frac nd}-1)$
+
+然后 $exp$ 回去： $\Phi_n(x)=\prod\limits_{d|n}(x^d-1)^{\mu(\frac nd)}$
+
+考虑到 $\mu(x)$ 只在 $x$ 没有平方因子的时候有贡献，而 $2\times3\times5\times7\times11\times13\le100000\le2\times3\times5\times7\times11\times13\times17$ ，因此可以暴力状压每个数的有贡献的约数
 </details>
 <details><summary>CODE</summary>
 

@@ -18,18 +18,18 @@
   
   
   <title>杂题乱做 Round10 | 自由を渇望する</title>
-  <meta name="description" content="机器人高尔夫球赛解题思路：  &amp;gt; 首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。 &amp;gt;  &amp;gt; 然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$ &amp;gt;  &amp;gt;">
+  <meta name="description" content="机器人高尔夫球赛解题思路：  首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。  然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$  那么暴力 $dp$">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂题乱做 Round10">
 <meta property="og:url" content="http://ldxcaicai.github.io/sol10/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="机器人高尔夫球赛解题思路：  &amp;gt; 首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。 &amp;gt;  &amp;gt; 然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$ &amp;gt;  &amp;gt;">
+<meta property="og:description" content="机器人高尔夫球赛解题思路：  首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。  然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$  那么暴力 $dp$">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T16:33:01.754Z">
+<meta property="og:updated_time" content="2019-12-25T00:04:50.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round10">
-<meta name="twitter:description" content="机器人高尔夫球赛解题思路：  &amp;gt; 首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。 &amp;gt;  &amp;gt; 然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$ &amp;gt;  &amp;gt;">
+<meta name="twitter:description" content="机器人高尔夫球赛解题思路：  首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。  然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$  那么暴力 $dp$">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/sol10/index.html">
   
@@ -404,11 +404,11 @@
       
         <h2 id="机器人高尔夫球赛"><a href="#机器人高尔夫球赛" class="headerlink" title="机器人高尔夫球赛"></a><a href="https://loj.ac/problem/3193" target="_blank" rel="noopener">机器人高尔夫球赛</a></h2><details><summary>解题思路：</summary>
 
-> 首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。
-> 
-> 然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$
-> 
-> 那么暴力 $dp$ 需要特殊处理的格子的值，用 $map$ 记录每条对角线的答案即可快速转移
+首先暴力 $dp$ 设 $f_{i,j}$ 表示先手在 $(i,j)$ 处出发的结果~~直接转移~~。
+
+然后考虑优化这个做法。打表会发现对于大部分格子，都有 $f_{i,j}=f_{i+1,j+1}$ ，认真思考后会发现如果格子 $(i,j)$ 满足跟它曼哈顿距离不超过 $2$ 的部分都没有标记那么 $f_{i,j}=f_{i+1,j+1}$
+
+那么暴力 $dp$ 需要特殊处理的格子的值，用 $map$ 记录每条对角线的答案即可快速转移
 </details>
 <details><summary>CODE</summary>
 
@@ -419,25 +419,25 @@
 <hr>
 <h2 id="有标号的DAG计数-IV"><a href="#有标号的DAG计数-IV" class="headerlink" title="有标号的DAG计数 IV"></a><a href="http://cogs.pro:8081/cogs/problem/problem.php?pid=viXzzVjgU" target="_blank" rel="noopener">有标号的DAG计数 IV</a></h2><details><summary>解题思路：</summary>
 
-> 可能得先会前三道 $DAG$ 计数，先考虑简单的问题，如果不要求连通怎么做，发现是个常见套路，枚举入度为 $0$ 的点然后容斥即可：
-> 
-> $$
-> \begin{aligned}
-> f_i=&\sum\limits_{j=1}^if_{i-j}2^{j(i-j)}(-1)^{i+1}\\
-> f_i=&\sum\limits_{j=0}^{i-1}f_j\sqrt2^{i^2-j^2-(i-j)^2}(-1)^{i-j+1}\\
-> \frac{f_i}{\sqrt2^{i^2}}=&\sum\limits_{j=0}^{i-1}\frac{f_j}{\sqrt2^{j^2}}\frac{(-1)^{i-j+1}}{\sqrt2^{(i-j)^2}}\\
-> 构造F(x)=&\sum\limits_{i=0}^{+\infty}\frac{f_i}{\sqrt2^{i^2}}x^i,G(x)=\sum\limits_{i=1}^{+\infty}\frac{(-1)^{i+1}}{\sqrt2^{i^2}}\\
-> F=&F\times G+1\\
-> F=&\frac{1}{1-G}
-> \end{aligned}
-> $$
-> 这样能够在 $O(n\log n)$ 的时间内求出 $f$
-> 
-> 接下来就有两种思路了，第一种是利用补集转化的思想，设答案等于 $g_i$ ，那么 $g_i=f_i-\sum\limits_{j=1}^{i-1}g_jf_{i-j}\binom{i-1}{j-1}$
-> 
-> 然后一波化简上多项式求逆
-> 
-> 第二种也挺容易想到的，设 $G$ 为答案的生成函数，显然有 $e^G=F$ ，那么写个多项式取对即可
+可能得先会前三道 $DAG$ 计数，先考虑简单的问题，如果不要求连通怎么做，发现是个常见套路，枚举入度为 $0$ 的点然后容斥即可：
+
+$$
+\begin{aligned}
+f_i=&\sum\limits_{j=1}^if_{i-j}2^{j(i-j)}(-1)^{i+1}\\
+f_i=&\sum\limits_{j=0}^{i-1}f_j\sqrt2^{i^2-j^2-(i-j)^2}(-1)^{i-j+1}\\
+\frac{f_i}{\sqrt2^{i^2}}=&\sum\limits_{j=0}^{i-1}\frac{f_j}{\sqrt2^{j^2}}\frac{(-1)^{i-j+1}}{\sqrt2^{(i-j)^2}}\\
+构造F(x)=&\sum\limits_{i=0}^{+\infty}\frac{f_i}{\sqrt2^{i^2}}x^i,G(x)=\sum\limits_{i=1}^{+\infty}\frac{(-1)^{i+1}}{\sqrt2^{i^2}}\\
+F=&F\times G+1\\
+F=&\frac{1}{1-G}
+\end{aligned}
+$$
+这样能够在 $O(n\log n)$ 的时间内求出 $f$
+
+接下来就有两种思路了，第一种是利用补集转化的思想，设答案等于 $g_i$ ，那么 $g_i=f_i-\sum\limits_{j=1}^{i-1}g_jf_{i-j}\binom{i-1}{j-1}$
+
+然后一波化简上多项式求逆
+
+第二种也挺容易想到的，设 $G$ 为答案的生成函数，显然有 $e^G=F$ ，那么写个多项式取对即可
 </details>
 <details><summary>CODE</summary>
 
@@ -448,7 +448,7 @@
 <hr>
 <h2 id="arewell"><a href="#arewell" class="headerlink" title="arewell"></a><a href="https://www.cometoj.com/contest/67/problem/F?problem_id=3803" target="_blank" rel="noopener">arewell</a></h2><details><summary>解题思路：</summary>
 
-> 容斥的思想跟上面的求 $f$ 的一样，枚举入度为 $0$ 的点，然后发现转移变成了枚举子集，直接用子集卷积优化即可
+容斥的思想跟上面的求 $f$ 的一样，枚举入度为 $0$ 的点，然后发现转移变成了枚举子集，直接用子集卷积优化即可
 </details>
 <details><summary>CODE</summary>
 
@@ -459,7 +459,7 @@
 <hr>
 <h2 id="ffort"><a href="#ffort" class="headerlink" title="ffort"></a><a href="https://www.cometoj.com/contest/67/problem/E" target="_blank" rel="noopener">ffort</a></h2><details><summary>解题思路：</summary>
 
-> 设总伤害为 $X$ 的方案数为 $f(X)$ 那么最后这个会对答案产生 $\binom{X-1}{n-1}$ 的贡献，由于 $X$ 非常大因此需要换一个角度思考，观察上述式子发现是要插入 $n-1$ 个板，那么我们对 $m$ 种数据结构分别构造生成函数 $F_i(x)$ ，其中 $F_i(x)[x^j]$ 表示其中放 $j$ 个板的方案数，然后我们对每一种数据结构做一次多项式快速幂最后乘起来即可，注意最后一个要特殊处理
+设总伤害为 $X$ 的方案数为 $f(X)$ 那么最后这个会对答案产生 $\binom{X-1}{n-1}$ 的贡献，由于 $X$ 非常大因此需要换一个角度思考，观察上述式子发现是要插入 $n-1$ 个板，那么我们对 $m$ 种数据结构分别构造生成函数 $F_i(x)$ ，其中 $F_i(x)[x^j]$ 表示其中放 $j$ 个板的方案数，然后我们对每一种数据结构做一次多项式快速幂最后乘起来即可，注意最后一个要特殊处理
 </details>
 <details><summary>CODE</summary>
 
@@ -470,7 +470,7 @@
 <hr>
 <h2 id="Temperature-Survey"><a href="#Temperature-Survey" class="headerlink" title="Temperature Survey"></a><a href="https://codeforces.com/gym/102220/problem/I" target="_blank" rel="noopener">Temperature Survey</a></h2><details><summary>解题思路：</summary>
 
-> 考虑把问题看成走网格的方案数，那么不断把 $(mid,a_{mid})$ 当成矩形的右上角，然后递归分治可以递归划分出 $O(n)$ 个矩形，这些矩形边长和是 $O(n\log n)$ 级别的，然后对于每个矩形用 $ntt$ 计算其上/左边界对其下/右边界的贡献即可
+考虑把问题看成走网格的方案数，那么不断把 $(mid,a_{mid})$ 当成矩形的右上角，然后递归分治可以递归划分出 $O(n)$ 个矩形，这些矩形边长和是 $O(n\log n)$ 级别的，然后对于每个矩形用 $ntt$ 计算其上/左边界对其下/右边界的贡献即可
 </details>
 <details><summary>CODE</summary>
 
@@ -481,9 +481,9 @@
 <hr>
 <h2 id="算力训练"><a href="#算力训练" class="headerlink" title="算力训练"></a><a href="https://www.luogu.com.cn/problem/P5577" target="_blank" rel="noopener">算力训练</a></h2><details><summary>解题思路：</summary>
 
-> 相当于是求 $\oplus_{i=1}^n(1+x^{a_i})$ ，那么可以先参考一下[这个题](https://ldxcaicai.github.io/sol9/#%E9%BB%8E%E6%98%8E%E5%89%8D%E7%9A%84%E5%B7%A7%E5%85%8B%E5%8A%9B)是怎么做的，这题也比较类似，大概是扩域将每个数表示成 $\sum\limits_{i=0}^Ka_i\omega_K^i$ 的形式，然后先把 $\sum\limits_{i=1}^n(1+x^{a_i})$ 给 $fwt$ 了，接着对于每一维分别求出它是由 $t$ 个 $\omega_K^i$ 加起来的，那么这一维的实际值应该是 $(1+\omega_K^i)^t$ 成功还原点值之后再 $ifwt$ 回去即可
-> 
-> 注意到这题有点卡常，因此求 $(1+\omega_K^i)^t$ 要用 $BSGS$ 卡常
+相当于是求 $\oplus_{i=1}^n(1+x^{a_i})$ ，那么可以先参考一下 黎明前的巧克力 是怎么做的，这题也比较类似，大概是扩域将每个数表示成 $\sum\limits_{i=0}^Ka_i\omega_K^i$ 的形式，然后先把 $\sum\limits_{i=1}^n(1+x^{a_i})$ 给 $fwt$ 了，接着对于每一维分别求出它是由 $t$ 个 $\omega_K^i$ 加起来的，那么这一维的实际值应该是 $(1+\omega_K^i)^t$ 成功还原点值之后再 $ifwt$ 回去即可
+
+注意到这题有点卡常，因此求 $(1+\omega_K^i)^t$ 要用 $BSGS$ 卡常
 </details>
 <details><summary>CODE</summary>
 
@@ -494,9 +494,9 @@
 <hr>
 <h2 id="魔力环"><a href="#魔力环" class="headerlink" title="魔力环"></a><a href="https://loj.ac/problem/6519" target="_blank" rel="noopener">魔力环</a></h2><details><summary>解题思路：</summary>
 
-> 考虑 $burnside$ 引理，发现只用枚举 $d|\gcd(n,m)$ ，然后计算 $f(d)$ 表示 $\frac md$ 个黑球， $\frac {n-m}d$ 个白球的序列，其中黑球（首尾的黑球要加起来）不连续超过 $K$ 个的方案数
-> 
-> 那么我们强制结尾没有黑球，枚举开头黑球有 $t$ 个，方案数乘上 $t+1$ 即可，现在问题变成了在 $\frac{n-m}d$ 个白球中插入 $\frac md-t$ 个黑球，每个空隙不能插入超过 $K$ 个，问方案数，那么容斥算即可
+考虑 $burnside$ 引理，发现只用枚举 $d|\gcd(n,m)$ ，然后计算 $f(d)$ 表示 $\frac md$ 个黑球， $\frac {n-m}d$ 个白球的序列，其中黑球（首尾的黑球要加起来）不连续超过 $K$ 个的方案数
+
+那么我们强制结尾没有黑球，枚举开头黑球有 $t$ 个，方案数乘上 $t+1$ 即可，现在问题变成了在 $\frac{n-m}d$ 个白球中插入 $\frac md-t$ 个黑球，每个空隙不能插入超过 $K$ 个，问方案数，那么容斥算即可
 </details>
 <details><summary>CODE</summary>
 
@@ -518,23 +518,23 @@
 <hr>
 <h2 id="如何优雅地求和"><a href="#如何优雅地求和" class="headerlink" title="如何优雅地求和"></a><a href="http://uoj.ac/problem/269" target="_blank" rel="noopener">如何优雅地求和</a></h2><details><summary>解题思路：</summary>
 
-> 考虑构造组合数恒等式：
-> 
-> $$
-> \begin{aligned}
-> f_j=&\sum\limits_{i=0}^m\binom jia_i\\
-> a_j=&\sum\limits_{i=0}^m\binom ji(-1)^{j-i}f_i\\
-> \frac{a_j}{j!}=&\frac{(-1)^{j-i}}{(j-i)!}\frac{f_i}{i!}\\
-> ntt&求出a_i\\
-> res=&\sum\limits_{i=0}^nf_i\binom nix^i(1-x)^{n-i}\\
-> =&\sum\limits_{i=0}^n(\sum\limits_{j=0}^m\binom ija_j)x^i(1-x)^{n-i}\binom ni\\
-> =&\sum\limits_{j=0}^ma_j\sum\limits_{i=0}^n\binom{n}{i}x^i(1-x)^{n-i}\binom ij\\
-> =&\sum\limits_{j=0}^ma_j\binom nj\sum\limits_{i=0}^nx^i(1-x)^{n-i}\binom {n-j}{i-j}\\
-> =&\sum\limits_{j=0}^ma_j\binom njx^j\sum\limits_{i=0}^{n-j}x^i(1-x)^{n-j-i}\binom{n-j}i\\
-> =&\sum\limits_{j=0}^ma_j\binom njx^i\\
-> \end{aligned}
-> $$
-> 当然利用下降幂多项式同样能够解决问题
+考虑构造组合数多项式：
+
+$$
+\begin{aligned}
+f_j=&\sum\limits_{i=0}^m\binom jia_i\\
+a_j=&\sum\limits_{i=0}^m\binom ji(-1)^{j-i}f_i\\
+\frac{a_j}{j!}=&\frac{(-1)^{j-i}}{(j-i)!}\frac{f_i}{i!}\\
+ntt&求出a_i\\
+res=&\sum\limits_{i=0}^nf_i\binom nix^i(1-x)^{n-i}\\
+=&\sum\limits_{i=0}^n(\sum\limits_{j=0}^m\binom ija_j)x^i(1-x)^{n-i}\binom ni\\
+=&\sum\limits_{j=0}^ma_j\sum\limits_{i=0}^n\binom{n}{i}x^i(1-x)^{n-i}\binom ij\\
+=&\sum\limits_{j=0}^ma_j\binom nj\sum\limits_{i=0}^nx^i(1-x)^{n-i}\binom {n-j}{i-j}\\
+=&\sum\limits_{j=0}^ma_j\binom njx^j\sum\limits_{i=0}^{n-j}x^i(1-x)^{n-j-i}\binom{n-j}i\\
+=&\sum\limits_{j=0}^ma_j\binom njx^i\\
+\end{aligned}
+$$
+当然利用下降幂多项式同样能够解决问题
 </details>
 <details><summary>CODE</summary>
 

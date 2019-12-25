@@ -18,18 +18,18 @@
   
   
   <title>杂题乱做 Round9 | 自由を渇望する</title>
-  <meta name="description" content="猎人杀解题思路：  &amp;gt; 关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的 &amp;gt;  &amp;gt; 在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910">
+  <meta name="description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910111213">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂题乱做 Round9">
 <meta property="og:url" content="http://ldxcaicai.github.io/sol9/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="猎人杀解题思路：  &amp;gt; 关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的 &amp;gt;  &amp;gt; 在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910">
+<meta property="og:description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910111213">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T16:31:43.579Z">
+<meta property="og:updated_time" content="2019-12-25T00:03:11.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round9">
-<meta name="twitter:description" content="猎人杀解题思路：  &amp;gt; 关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的 &amp;gt;  &amp;gt; 在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910">
+<meta name="twitter:description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910111213">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/sol9/index.html">
   
@@ -404,9 +404,9 @@
       
         <h2 id="猎人杀"><a href="#猎人杀" class="headerlink" title="猎人杀"></a><a href="https://loj.ac/problem/2541" target="_blank" rel="noopener">猎人杀</a></h2><details><summary>解题思路：</summary>
 
-> 关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的
-> 
-> 在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计
+关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的
+
+在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计
 </details>
 <details><summary>CODE</summary>
 
@@ -417,11 +417,11 @@
 <hr>
 <h2 id="有意义的字符串"><a href="#有意义的字符串" class="headerlink" title="有意义的字符串"></a><a href="https://loj.ac/problem/2106" target="_blank" rel="noopener">有意义的字符串</a></h2><details><summary>解题思路：</summary>
 
-> 首先有个坑点是**题目中数据范围不全**，有一部分测试数据满足 $b=1,d=5$ ，现在考虑这题咋做
-> 
-> 大概看到这个玩意儿会联系到数列里面用特征根方程求通项公式，不妨设 $f_n=(\frac{b+\sqrt d}{2})^n+(\frac{b-\sqrt d}{2})^n$ ，然后可以利用这个通项公式反解出数列递推式 $f_n=bf_{n-1}+\frac{b^2-d}4f_{n-2}$
-> 
-> 这样就能搞出来 $f_n$ ，然后由于题目给出的限制条件，这个 $\frac{b-\sqrt d}2\in(-1,0]$ ，所以这个 $(\frac{b-\sqrt d}2)^n\in(-1,1)$ ，也就是说最后需要特判 $f_n$ 是否要减一
+首先有个坑点是**题目中数据范围不全**，有一部分测试数据满足 $b=1,d=5$ ，现在考虑这题咋做
+
+大概看到这个玩意儿会联系到数列里面用特征根方程求通项公式，不妨设 $f_n=(\frac{b+\sqrt d}{2})^n+(\frac{b-\sqrt d}{2})^n$ ，然后可以利用这个通项公式反解出数列递推式 $f_n=bf_{n-1}+\frac{b^2-d}4f_{n-2}$
+
+这样就能搞出来 $f_n$ ，然后由于题目给出的限制条件，这个 $\frac{b-\sqrt d}2\in(-1,0]$ ，所以这个 $(\frac{b-\sqrt d}2)^n\in(-1,1)$ ，也就是说最后需要特判 $f_n$ 是否要减一
 </details>
 <details><summary>CODE</summary>
 
@@ -432,9 +432,9 @@
 <hr>
 <h2 id="分拆数"><a href="#分拆数" class="headerlink" title="分拆数"></a><a href="https://loj.ac/problem/6268" target="_blank" rel="noopener">分拆数</a></h2><details><summary>解题思路：</summary>
 
-> 貌似是个生成函数基础问题，大概是用多项式 $exp$ 和调和级数的性质来优化背包
-> 
-> 大概就是对于每个数构造出其生成函数然后乘起来就可以算出答案，然后对多项式取对就变成加法，再用个求导的变化就能转成 $exp$ ，不理解的可以看看[这篇博客](https://ldxcaicai.github.io/gf/)的背包优化部分
+貌似是个生成函数基础问题，大概是用多项式 $exp$ 和调和级数的性质来优化背包
+
+大概就是对于每个数构造出其生成函数然后乘起来就可以算出答案，然后对多项式取对就变成加法，再用个求导的变化就能转成 $exp$ ，不理解的可以看看我博客里有一篇 Generating function 的背包优化部分
 </details>
 <details><summary>CODE</summary>
 
@@ -445,7 +445,7 @@
 <hr>
 <h2 id="整数的lqp拆分"><a href="#整数的lqp拆分" class="headerlink" title="整数的lqp拆分"></a><a href="https://www.luogu.com.cn/problem/P4451" target="_blank" rel="noopener">整数的lqp拆分</a></h2><details><summary>解题思路：</summary>
 
-> 可以直接 $dp$ 推式子，也可以用生成函数~~貌似都挺快的~~，最后反正是可以用矩乘优化~~然而我太懒了就没写~~
+可以直接 $dp$ 推式子，也可以用生成函数~~貌似都挺快的~~，最后反正是可以用矩乘优化~~然而我太懒了就没写~~
 </details>
 <details><summary>CODE</summary>
 
@@ -456,27 +456,27 @@
 <hr>
 <h2 id="Perpetual-Subtraction"><a href="#Perpetual-Subtraction" class="headerlink" title="Perpetual Subtraction"></a><a href="https://codeforces.com/contest/947/problem/E" target="_blank" rel="noopener">Perpetual Subtraction</a></h2><details><summary>解题思路：</summary>
 
-> 要用一点线性代数中矩阵对角化的知识，前置知识可以在[这里](https://ldxcaicai.github.io/LA/)学
-> 
-> 这题想办法推一推转移矩阵的桥接矩阵 $\Phi$ ，发现还蛮有规律的，大概是 $\Phi_{i,j}=(-1)^{i+j}C_j^i$ ，然后可以比较简单的推出 $\Phi^{-1}_{i,j}=C_j^i$ ，然后左乘矩阵就是一个沙雕卷积直接做就好~~感觉啥都没讲有问题评论区问吧~~
-> 
-> 下面介绍另外一个方法：
-> 首先设 $f_{0,i}$ 表示当前轮值为 $i$ 的概率，那么下一轮值为 $i$ 的概率 $f_{1,i}$ 可以用 $f_0$ 递推
-> 
-> $$
-> \begin{aligned}
-> f_{1,i}=&\sum\limits_{j=i}^nf_{0,j}\frac1{j+1}\\
-> 列出生成&函数F_0(x),F_1(x)\\
-> F_1(x)=&\sum\limits_{i=0}^nx^i\sum\limits_{j=0}^nf_{0,j}\frac1{j+1}\\
-> =&\sum\limits_{j=0}^n\frac{f_{0,j}}{j+1}\sum\limits_{i=0}^jx^i\\
-> =&\sum\limits_{j=0}^nf_{0,j}\frac{x_j}{j+1}\frac{x^{j+1}-1}{x-1}\\
-> =&\frac1{x-1}\sum\limits_{j=0}^nf_{0,j}\int_1^xt^j\text dt\\
-> =&\frac{\int_1^xF_0(t)\text dt}{x-1}\\
-> 令G_1(x)=&F_1(x+1)=\frac{\int_0^xF_0(t)\text dt}{x-1}\\
-> 那么g_{1,i}=&\frac{g_{0,i}}{i-1},g_{m,i}=\frac{g_{0,i}}{(i-1)^m}\\
-> 用二项式&反演推出 f,g 正逆变换即可
-> \end{aligned}
-> $$
+要用一点线性代数中矩阵对角化的知识，前置知识可以在 Linear algebra 学
+
+这题想办法推一推转移矩阵的桥接矩阵 $\Phi$ ，发现还蛮有规律的，大概是 $\Phi_{i,j}=(-1)^{i+j}C_j^i$ ，然后可以比较简单的推出 $\Phi^{-1}_{i,j}=C_j^i$ ，然后左乘矩阵就是一个沙雕卷积直接做就好~~感觉啥都没讲有问题评论区问吧~~
+
+下面介绍另外一个方法：
+首先设 $f_{0,i}$ 表示当前轮值为 $i$ 的概率，那么下一轮值为 $i$ 的概率 $f_{1,i}$ 可以用 $f_0$ 递推
+
+$$
+\begin{aligned}
+f_{1,i}=&\sum\limits_{j=i}^nf_{0,j}\frac1{j+1}\\
+列出生成&函数F_0(x),F_1(x)\\
+F_1(x)=&\sum\limits_{i=0}^nx^i\sum\limits_{j=0}^nf_{0,j}\frac1{j+1}\\
+=&\sum\limits_{j=0}^n\frac{f_{0,j}}{j+1}\sum\limits_{i=0}^jx^i\\
+=&\sum\limits_{j=0}^nf_{0,j}\frac{x_j}{j+1}\frac{x^{j+1}-1}{x-1}\\
+=&\frac1{x-1}\sum\limits_{j=0}^nf_{0,j}\int_1^xt^j\text dt\\
+=&\frac{\int_1^xF_0(t)\text dt}{x-1}\\
+令G_1(x)=&F_1(x+1)=\frac{\int_0^xF_0(t)\text dt}{x-1}\\
+那么g_{1,i}=&\frac{g_{0,i}}{i-1},g_{m,i}=\frac{g_{0,i}}{(i-1)^m}\\
+用二项式&反演推出 f,g 正逆变换即可
+\end{aligned}
+$$
 </details>
 <details><summary>CODE</summary>
 
@@ -487,9 +487,9 @@
 <hr>
 <h2 id="黎明前的巧克力"><a href="#黎明前的巧克力" class="headerlink" title="黎明前的巧克力"></a><a href="http://uoj.ac/problem/310" target="_blank" rel="noopener">黎明前的巧克力</a></h2><details><summary>解题思路：</summary>
 
-> 对于每个数构造集合幂级数，发现是要求 $\oplus_{i=1}^n(1+2x^{a_i})[x^0]$
-> 
-> 然后观察异或卷积的性质，假如第 $i$ 位为 $1$ ，那么它会根据 $j\&i$ 的奇偶性对 $j$ 位置产生 $\pm1$ 的贡献，因此每个数 $fwt$ 后每一位的结果一定为 $1$ 或者 $-3$ ，这样我们直接把 $\sum_{i=1}^n(1+2x^{a_i})$ 拿来 $fwt$ ，然后解每一位有多少个 $-1,3$ 然后求出真实的点值表达式的乘积结果，然后再 $ifwt$ 回去即可
+对于每个数构造集合幂级数，发现是要求 $\oplus_{i=1}^n(1+2x^{a_i})[x^0]$
+
+然后观察异或卷积的性质，假如第 $i$ 位为 $1$ ，那么它会根据 $j\&i$ 的奇偶性对 $j$ 位置产生 $\pm1$ 的贡献，因此每个数 $fwt$ 后每一位的结果一定为 $1$ 或者 $-3$ ，这样我们直接把 $\sum_{i=1}^n(1+2x^{a_i})$ 拿来 $fwt$ ，然后解每一位有多少个 $-1,3$ 然后求出真实的点值表达式的乘积结果，然后再 $ifwt$ 回去即可
 </details>
 <details><summary>CODE</summary>
 
@@ -500,7 +500,7 @@
 <hr>
 <h2 id="Radix-sum"><a href="#Radix-sum" class="headerlink" title="Radix sum"></a><a href="https://codeforces.com/contest/1103/problem/E" target="_blank" rel="noopener">Radix sum</a></h2><details><summary>解题思路：</summary>
 
-> 不考虑模数的话就是 $10$ 进制 $fwt$ 裸题，现在有了模数，那么可以暴力扩域，用一个向量 $(a_0,a_1,...,a_9)^{\text T}$ 来表示一个数 $\sum\limits_{i=0}^9a_i\omega_{10}^i$，这样就能够正常的 $dft$ 了，然后再考虑怎么求 $10$ 的逆元，发现 $5$ 的逆元可以广义欧拉定理直接搞， $2$ 可以直接除，这样就做完了，不过最后求答案的时候需要爆算一波
+不考虑模数的话就是 $10$ 进制 $fwt$ 裸题，现在有了模数，那么可以暴力扩域，用一个向量 $(a_0,a_1,...,a_9)^{\text T}$ 来表示一个数 $\sum\limits_{i=0}^9a_i\omega_{10}^i$，这样就能够正常的 $dft$ 了，然后再考虑怎么求 $10$ 的逆元，发现 $5$ 的逆元可以广义欧拉定理直接搞， $2$ 可以直接除，这样就做完了，不过最后求答案的时候需要爆算一波
 </details>
 <details><summary>CODE</summary>
 
