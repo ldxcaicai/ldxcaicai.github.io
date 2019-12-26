@@ -18,18 +18,18 @@
   
   
   <title>杂题乱做 Round9 | 自由を渇望する</title>
-  <meta name="description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910111213">
+  <meta name="description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据题解观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  123456789101112131415">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂题乱做 Round9">
 <meta property="og:url" content="http://ldxcaicai.github.io/sol9/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910111213">
+<meta property="og:description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据题解观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  123456789101112131415">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-25T00:03:11.920Z">
+<meta property="og:updated_time" content="2019-12-26T04:24:00.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round9">
-<meta name="twitter:description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  12345678910111213">
+<meta name="twitter:description" content="猎人杀解题思路：  关键点在于对于一个死去的人的处理，根据题解观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的  在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计  CODE  123456789101112131415">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/sol9/index.html">
   
@@ -404,7 +404,7 @@
       
         <h2 id="猎人杀"><a href="#猎人杀" class="headerlink" title="猎人杀"></a><a href="https://loj.ac/problem/2541" target="_blank" rel="noopener">猎人杀</a></h2><details><summary>解题思路：</summary>
 
-关键点在于对于一个死去的人的处理，根据~~题解~~观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的
+关键点在于对于一个死去的人的处理，根据题解观察可知这个概率等于在所有人中随机选人开枪，而在选到已经死去的人的时候重新选人，这样跟在未死去的人中随机选人的概率是相同的
 
 在知道这一点之后就可以尝试容斥了，考虑至少 $k$ 个人在第一个人之后死的概率发现这个可以把它们的权值放在生成函数指数上然后利用分治 $ntt$ 快速统计
 </details>
@@ -458,7 +458,7 @@
 
 要用一点线性代数中矩阵对角化的知识，前置知识可以在 Linear algebra 学
 
-这题想办法推一推转移矩阵的桥接矩阵 $\Phi$ ，发现还蛮有规律的，大概是 $\Phi_{i,j}=(-1)^{i+j}C_j^i$ ，然后可以比较简单的推出 $\Phi^{-1}_{i,j}=C_j^i$ ，然后左乘矩阵就是一个沙雕卷积直接做就好~~感觉啥都没讲有问题评论区问吧~~
+这题想办法推一推转移矩阵的桥接矩阵 $\Phi$ ，发现还蛮有规律的，大概是 $\Phi_{i,j}=(-1)^{i+j}C_j^i$ ，然后可以比较简单的推出 $\Phi^{-1}_{i,j}=C_j^i$ ，然后左乘矩阵就是一个沙雕卷积直接做就好，感觉啥都没讲有问题评论区问吧
 
 下面介绍另外一个方法：
 首先设 $f_{0,i}$ 表示当前轮值为 $i$ 的概率，那么下一轮值为 $i$ 的概率 $f_{1,i}$ 可以用 $f_0$ 递推
@@ -709,21 +709,5 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

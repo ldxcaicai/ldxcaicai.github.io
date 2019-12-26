@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="随机数生成器解题思路：  看了一下网上的解法大概是 $O(nX)$ 的？其实有个 $O(n^2)$ 的在这里讲一下吧  考虑用 $min-max$ 容斥转化为求所有子集询问到的位置的最小值的期望，这样答案只跟所有询问覆盖的长度有关，首先考虑 $n$ 个 $[1,x]$ 间随机整数的期望最小值怎么求，考虑枚举最小值是多少以及有哪些位置是最小值然后进行变形即可，下面推一波式子： $$ \begin{a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T23:58:45.456Z">
+<meta property="og:updated_time" content="2019-12-26T04:26:31.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round6">
 <meta name="twitter:description" content="随机数生成器解题思路：  看了一下网上的解法大概是 $O(nX)$ 的？其实有个 $O(n^2)$ 的在这里讲一下吧  考虑用 $min-max$ 容斥转化为求所有子集询问到的位置的最小值的期望，这样答案只跟所有询问覆盖的长度有关，首先考虑 $n$ 个 $[1,x]$ 间随机整数的期望最小值怎么求，考虑枚举最小值是多少以及有哪些位置是最小值然后进行变形即可，下面推一波式子： $$ \begin{a">
@@ -429,7 +429,7 @@ $$
 </details>
 <details><summary>考虑继续优化</summary>
 
-经过观察发现如果一个大区间包含了一个小区间，那么大区间可以舍掉，因为最终答案一定在小区间中，于是在进行掉这一步处理之后所有询问区间的左右端点都是单增的，也就是说对于第三种转移后面的 $f_{i,j}$ 本来就是 $0$ ，那么只用维护行前缀和和对角线前缀和即可，复杂度为 $O(q\log q+n^2)$ ，~~可以加强到 $n\le5000,x\le 1e9,q\le1e6$ 了~~
+经过观察发现如果一个大区间包含了一个小区间，那么大区间可以舍掉，因为最终答案一定在小区间中，于是在进行掉这一步处理之后所有询问区间的左右端点都是单增的，也就是说对于第三种转移后面的 $f_{i,j}$ 本来就是 $0$ ，那么只用维护行前缀和和对角线前缀和即可，复杂度为 $O(q\log q+n^2)$ ，可以加强到 $n\le5000,x\le 1e9,q\le1e6$ 了
 </details>
 <details><summary>CODE</summary>
 
@@ -760,21 +760,5 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

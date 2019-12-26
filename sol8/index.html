@@ -18,18 +18,18 @@
   
   
   <title>杂题乱做 Round8 | 自由を渇望する</title>
-  <meta name="description" content="青春猪头少年不会梦到兔女郎学姐解题思路：  首先是处理环的问题，~~这貌似是一个常见套路~~，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可  现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，~~这不又是那道[JSOI2019]神经网络吗~~，显然用容斥+生成函数解决">
+  <meta name="description" content="青春猪头少年不会梦到兔女郎学姐解题思路：  首先是处理环的问题，这貌似是一个常见套路，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可  现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，这不又是那道[JSOI2019]神经网络吗，显然用容斥+生成函数解决，那么现在只用求">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="杂题乱做 Round8">
 <meta property="og:url" content="http://ldxcaicai.github.io/sol8/index.html">
 <meta property="og:site_name" content="自由を渇望する">
-<meta property="og:description" content="青春猪头少年不会梦到兔女郎学姐解题思路：  首先是处理环的问题，~~这貌似是一个常见套路~~，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可  现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，~~这不又是那道[JSOI2019]神经网络吗~~，显然用容斥+生成函数解决">
+<meta property="og:description" content="青春猪头少年不会梦到兔女郎学姐解题思路：  首先是处理环的问题，这貌似是一个常见套路，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可  现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，这不又是那道[JSOI2019]神经网络吗，显然用容斥+生成函数解决，那么现在只用求">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-25T00:01:19.839Z">
+<meta property="og:updated_time" content="2019-12-26T04:24:49.106Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round8">
-<meta name="twitter:description" content="青春猪头少年不会梦到兔女郎学姐解题思路：  首先是处理环的问题，~~这貌似是一个常见套路~~，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可  现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，~~这不又是那道[JSOI2019]神经网络吗~~，显然用容斥+生成函数解决">
+<meta name="twitter:description" content="青春猪头少年不会梦到兔女郎学姐解题思路：  首先是处理环的问题，这貌似是一个常见套路，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可  现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，这不又是那道[JSOI2019]神经网络吗，显然用容斥+生成函数解决，那么现在只用求">
   <!-- Canonical links -->
   <link rel="canonical" href="http://ldxcaicai.github.io/sol8/index.html">
   
@@ -404,9 +404,9 @@
       
         <h2 id="青春猪头少年不会梦到兔女郎学姐"><a href="#青春猪头少年不会梦到兔女郎学姐" class="headerlink" title="青春猪头少年不会梦到兔女郎学姐"></a><a href="http://oi.cdshishi.net:8000/problempage.php?problem_id=4691" target="_blank" rel="noopener">青春猪头少年不会梦到兔女郎学姐</a></h2><details><summary>解题思路：</summary>
 
-首先是处理环的问题，~~这貌似是一个常见套路~~，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可
+首先是处理环的问题，这貌似是一个常见套路，即规定开头一定是第一种算出方案数再扣去开头结尾都是第一种的方案数，最后乘上每种方案被计算的次数即可
 
-现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，~~这不又是那道[JSOI2019]神经网络吗~~，显然用容斥+生成函数解决，那么现在只用求把 $n$ 个颜色的球划分成 $m$ 段，所有方案的段乘积之和，这个也可以生成函数推导一下，推导如下：
+现在只需考虑序列上如何做，显然要对每种颜色分开考虑，相当于是将每种颜色分成若干段然后在序列上拼接使得相邻的两段不能是同一种颜色，这不又是那道[JSOI2019]神经网络吗，显然用容斥+生成函数解决，那么现在只用求把 $n$ 个颜色的球划分成 $m$ 段，所有方案的段乘积之和，这个也可以生成函数推导一下，推导如下：
 $$
 \begin{aligned}
 Ans=&[x^n](\sum\limits_{i=0}^{+\infty}ix^i)^m\\
@@ -423,7 +423,7 @@ Ans=&\sum\limits_{c}\sum\limits_{b}(\prod\limits C_{a_i+b_i-1}^{2b_i-1}C_{b_i-1}
 \end{aligned}
 $$
 
-~~然后把式子拆开对每种球都构造生成函数最后分治 $ntt$ 合并起来即可，注意第一种颜色需要进行特殊处理~~，好吧还是列一个生成函数的式子：
+然后把式子拆开对每种球都构造生成函数最后分治 $ntt$ 合并起来即可，注意第一种颜色需要进行特殊处理，好吧还是列一个生成函数的式子：
 $$
 \begin{aligned}
 f_i(x)=&\sum\limits_{i=0}^{a_i}\frac{x^i}{i!}(\sum\limits_{b\ge i}C_{a_i+b-1}^{2b}C_{b-1}^{i-1}(-1)^{b-c})
@@ -442,7 +442,7 @@ $$
 <hr>
 <h2 id="Endless-Spin"><a href="#Endless-Spin" class="headerlink" title="Endless Spin"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4624" target="_blank" rel="noopener">Endless Spin</a></h2><details><summary>解题思路：</summary>
 
-~~又一道套路题~~，考虑用 $min-max$ 容斥转化问题，变为求一个集合所有元素第一次被覆盖时间的最小值，这个可以用概率转化+一个简单 $dp$ 来求，首先设这个集合某个元素被覆盖的概率为 $P$ ，那么这个集合某个元素被覆盖的期望次数为 $\sum\limits_{i=0}^{+\infty}(\frac{1-P}{1})^i=\frac1P$ ，设 $f_{i,j,0/1}$ 表示处理到第 $i$ 个位置，有 $j$ 个区间跟当前集合不相交，当前集合中元素的奇偶性为 $0/1$ 的方案数，然后~~该怎么转移怎么转移~~，注意最后答案要维护一个小数类
+又一道套路题，考虑用 $min-max$ 容斥转化问题，变为求一个集合所有元素第一次被覆盖时间的最小值，这个可以用概率转化+一个简单 $dp$ 来求，首先设这个集合某个元素被覆盖的概率为 $P$ ，那么这个集合某个元素被覆盖的期望次数为 $\sum\limits_{i=0}^{+\infty}(\frac{1-P}{1})^i=\frac1P$ ，设 $f_{i,j,0/1}$ 表示处理到第 $i$ 个位置，有 $j$ 个区间跟当前集合不相交，当前集合中元素的奇偶性为 $0/1$ 的方案数，然后该怎么转移怎么转移，注意最后答案要维护一个小数类
 </details>
 <details><summary>CODE</summary>
 
@@ -756,21 +756,5 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

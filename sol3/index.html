@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="建设游乐场解题思路：  在 $m$ 很小的时候可以考虑用轮廓线做，但现在 $m$ 较大，因此要对该题的特殊条件进行分析：  考虑到最后会形成若干回路，因此若将整张图进行黑白染色，那么一个白格一定连接两个黑格，由于弯道的权值为 $vl_{i,j}$ ，直道的权值为 $0$ ，因此可以将每个格子按照横纵方向建两个点并进行如下连边： 1. 源点向每个白格对应点连边，费用 $0$ ，流量 $2$ 2. 每">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T23:54:27.104Z">
+<meta property="og:updated_time" content="2019-12-26T04:29:22.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round3">
 <meta name="twitter:description" content="建设游乐场解题思路：  在 $m$ 很小的时候可以考虑用轮廓线做，但现在 $m$ 较大，因此要对该题的特殊条件进行分析：  考虑到最后会形成若干回路，因此若将整张图进行黑白染色，那么一个白格一定连接两个黑格，由于弯道的权值为 $vl_{i,j}$ ，直道的权值为 $0$ ，因此可以将每个格子按照横纵方向建两个点并进行如下连边： 1. 源点向每个白格对应点连边，费用 $0$ ，流量 $2$ 2. 每">
@@ -482,7 +482,7 @@
 
 现在在整棵树的根处可以将满足儿子小于父亲和儿子大于父亲的树给拼接起来，统计方案数即可
 
-**注意到同一棵树的可行根由若干个，但它们形成了一条单调路径，我们在端点统计即可**
+注意到同一棵树的可行根由若干个，但它们形成了一条单调路径，我们在端点统计即可
 </details>
 <details><summary>CODE</summary>
 
@@ -723,21 +723,5 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

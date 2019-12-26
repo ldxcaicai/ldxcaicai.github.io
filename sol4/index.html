@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="交与并解题思路：  容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替  那么对于每个区间找一个跟它交并长度乘积最大的区间即可  发现有两种相交和包含，那么先考虑如何处理包含的情况  考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性质：  假设存在 $A\su">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T23:55:37.820Z">
+<meta property="og:updated_time" content="2019-12-26T04:28:23.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round4">
 <meta name="twitter:description" content="交与并解题思路：  容易探究出如下性质： 所有合法集合可以由集合中的两个区间代替  那么对于每个区间找一个跟它交并长度乘积最大的区间即可  发现有两种相交和包含，那么先考虑如何处理包含的情况  考虑先左端点递增后右端点递减的顺序进行排序，维护当前最右端点来判断是否包含，并跟当前最右端点对应区间求贡献，但这样不一定能求出所有包含当前区间中最长的那个，这个时候考虑如下一点性质：  假设存在 $A\su">
@@ -451,7 +451,7 @@
 
 显然要选一个 $du\le2$ 的最小编号作为根，剩下的用 $dfs$ 处理出子树中 $du\le2$ 的最小编号来贪心构造即可
 
-~~实际上就是分类讨论一波~~
+实际上就是分类讨论一波
 </details>
 <details><summary>CODE</summary>
 
@@ -706,21 +706,5 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

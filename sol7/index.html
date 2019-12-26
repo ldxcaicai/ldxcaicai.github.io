@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="Sockpuppets解题思路：  考虑到题目的匹配条件显然需要建一棵 $trie$ 树出来，注意到这棵树深度不超过 $10$ ，考虑设 $f_{i,j,k}$ 表示当前处理到子树 $i$ ，子树中有 $j$ 个点需要进行匹配，自己的祖先已经有 $k$ 个被提前选用匹配的方案数，然后按照当前点的类型分开转移即可  CODE  123456789101112131415161718192021222">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-24T23:59:40.103Z">
+<meta property="og:updated_time" content="2019-12-26T04:26:08.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round7">
 <meta name="twitter:description" content="Sockpuppets解题思路：  考虑到题目的匹配条件显然需要建一棵 $trie$ 树出来，注意到这棵树深度不超过 $10$ ，考虑设 $f_{i,j,k}$ 表示当前处理到子树 $i$ ，子树中有 $j$ 个点需要进行匹配，自己的祖先已经有 $k$ 个被提前选用匹配的方案数，然后按照当前点的类型分开转移即可  CODE  123456789101112131415161718192021222">
@@ -472,7 +472,7 @@
 <hr>
 <h2 id="进攻！"><a href="#进攻！" class="headerlink" title="进攻！"></a><a href="https://loj.ac/problem/6516" target="_blank" rel="noopener">进攻！</a></h2><details><summary>解题思路：</summary>
 
-~~容斥是一眼的~~，考虑一个矩形被计算的次数等于其 $2\times 2$ 的子矩形数+ $1\times 1$ 的子矩形数- $1\times 2$ 的子矩形数- $2\times 1$ 的子矩形数，那么分别统计每个小矩形被计算的次数。
+考虑一个矩形被计算的次数等于其 $2\times 2$ 的子矩形数+ $1\times 1$ 的子矩形数- $1\times 2$ 的子矩形数- $2\times 1$ 的子矩形数，那么分别统计每个小矩形被计算的次数。
 
 有一个比较显然的方法是枚举每个空白矩形然后差分，然而也可以直接对于每个点处理出其在差分数组中的值然后直接前缀和，这个用单调栈即可搞定，不会的可以看看[这道题](https://www.luogu.org/problem/P3400)
 </details>
@@ -485,7 +485,7 @@
 <hr>
 <h2 id="Permuted-Matrices"><a href="#Permuted-Matrices" class="headerlink" title="Permuted Matrices"></a><a href="https://projecteuler.net/problem=559" target="_blank" rel="noopener">Permuted Matrices</a></h2><details><summary>解题思路：</summary>
 
-~~显然容斥即可~~，考虑只有一行的时候咋做，考虑把整个序列分成 $\lfloor\frac{n}{k}\rfloor$ 段，设 $f_i$ 表示前 $i$ 段带容斥系数的答案，然后枚举最后 $j$ 段可以强制合并成一段转移即可，即 $f_{i}=\sum\limits_{j=1}^if_{i-j}C_{ik}^{jk}$ ，加上行的限制就是把后面的组合数给行数次方，然后变个形就能上多项式搞，~~不过模数太那啥于是可以暴力~~
+考虑只有一行的时候咋做，考虑把整个序列分成 $\lfloor\frac{n}{k}\rfloor$ 段，设 $f_i$ 表示前 $i$ 段带容斥系数的答案，然后枚举最后 $j$ 段可以强制合并成一段转移即可，即 $f_{i}=\sum\limits_{j=1}^if_{i-j}C_{ik}^{jk}$ ，加上行的限制就是把后面的组合数给行数次方，然后变个形就能上多项式搞
 </details>
 <details><summary>CODE</summary>
 
@@ -694,21 +694,5 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
