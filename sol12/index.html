@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="自由を渇望する">
 <meta property="og:description" content="某位歌姬的故事解题思路  将序列离散化后，可以给每一段区间定一个最大值的最小上界，那么每一种上界的值是独立的，考虑把相同上界的块扯出来 DP  对于一种上界，把对应的段和限制提出来，对于每个块维护一个 $maxl$ 表示处理到区间 $i$ 时，最后填入的一个等于上界的值所在的块标号应该不小于 $maxl$ ，对于一个限制对应的块 $[l,...,r]$ ，我们用 $l$ 更新 $maxl[r]$">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-26T04:21:48.336Z">
+<meta property="og:updated_time" content="2019-12-26T04:33:06.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="杂题乱做 Round12">
 <meta name="twitter:description" content="某位歌姬的故事解题思路  将序列离散化后，可以给每一段区间定一个最大值的最小上界，那么每一种上界的值是独立的，考虑把相同上界的块扯出来 DP  对于一种上界，把对应的段和限制提出来，对于每个块维护一个 $maxl$ 表示处理到区间 $i$ 时，最后填入的一个等于上界的值所在的块标号应该不小于 $maxl$ ，对于一个限制对应的块 $[l,...,r]$ ，我们用 $l$ 更新 $maxl[r]$">
@@ -348,7 +348,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">Catalogue</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#某位歌姬的故事"><span class="toc-number">1.</span> <span class="toc-text">某位歌姬的故事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九个太阳"><span class="toc-number">2.</span> <span class="toc-text">九个太阳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hard-Nim"><span class="toc-number">3.</span> <span class="toc-text">Hard Nim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二元运算"><span class="toc-number">4.</span> <span class="toc-text">二元运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kyoya-and-Train"><span class="toc-number">6.</span> <span class="toc-text">Kyoya and Train</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Frightful-Formula"><span class="toc-number">7.</span> <span class="toc-text">Frightful Formula</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#某位歌姬的故事"><span class="toc-number">1.</span> <span class="toc-text">某位歌姬的故事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九个太阳"><span class="toc-number">2.</span> <span class="toc-text">九个太阳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hard-Nim"><span class="toc-number">3.</span> <span class="toc-text">Hard Nim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二元运算"><span class="toc-number">4.</span> <span class="toc-text">二元运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lightsabers-hard"><span class="toc-number">5.</span> <span class="toc-text">Lightsabers (hard)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kyoya-and-Train"><span class="toc-number">6.</span> <span class="toc-text">Kyoya and Train</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Frightful-Formula"><span class="toc-number">7.</span> <span class="toc-text">Frightful Formula</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -459,7 +459,7 @@ $$
 </details>
 
 <hr>
-<h2 id><a href="#" class="headerlink" title></a><a href="https://codeforces.com/contest/958/problem/F3" target="_blank" rel="noopener"></a></h2><details><summary>解题思路</summary>
+<h2 id="Lightsabers-hard"><a href="#Lightsabers-hard" class="headerlink" title="Lightsabers (hard)"></a><a href="https://codeforces.com/contest/958/problem/F3" target="_blank" rel="noopener">Lightsabers (hard)</a></h2><details><summary>解题思路</summary>
 
 可以直接对每种颜色构造形式幂级数然后做双模分治 $ntt$ 
 
@@ -715,5 +715,21 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
